@@ -72,3 +72,65 @@ graph TD;
     F -->|Example:| Z1(Offspring 1: x = 1);
     F --> Z2(Offspring 2: x = 3);
 ```
+
+## Usage
+
+``` r
+library(genetic.algo.optimizeR)
+
+# Initialize population
+population <- initialize_population(population_size = 3, min = 0, max = 3)
+print("Initial Population:")
+#> [1] "Initial Population:"
+print(population)
+#> [1] 1 2 3
+
+while (TRUE) {
+  # Evaluate fitness
+  fitness <- evaluate_fitness(population)
+  print("Evaluation:")
+  print(fitness)
+  
+  
+  # Check if the fitness of every individual is close to zero
+  if (all(abs(fitness) <= 0.01)) {
+    print("Termination Condition Reached: All individuals have fitness close to zero.")
+    break
+  }
+  
+  # Selection
+  selected_parents <- selection(population, fitness, num_parents = 2)
+  print("Selection:")
+  print(selected_parents)
+  
+  # Crossover and Mutation
+  offspring <- crossover(selected_parents, offspring_size = 2)
+  mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
+  print("Crossover and Mutation:")
+  print(mutated_offspring)
+  
+  # Replacement
+  population <- replacement(population, mutated_offspring, num_to_replace = 1)
+  print("Replacement:")
+  print(population)
+}
+#> [1] "Evaluation:"
+#> [1] 1 0 1
+#> [1] "Selection:"
+#> [1] 2 1
+#> [1] "Crossover and Mutation:"
+#> [1] 1 1
+#> [1] "Replacement:"
+#> [1] 1 2 1
+#> [1] "Evaluation:"
+#> [1] 1 0 1
+#> [1] "Selection:"
+#> [1] 2 1
+#> [1] "Crossover and Mutation:"
+#> [1] 2 2
+#> [1] "Replacement:"
+#> [1] 2 2 2
+#> [1] "Evaluation:"
+#> [1] 0 0 0
+#> [1] "Termination Condition Reached: All individuals have fitness close to zero."
+```

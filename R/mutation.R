@@ -3,7 +3,8 @@ mutation <- function(offspring, mutation_rate) {
 
   for (i in seq(num_offspring)) {
     if (runif(1) < mutation_rate) {
-      offspring[i] <- offspring[i] + rnorm(1, mean = 0, sd = 0.1)  # Add small random value
+      offspring[i] <- offspring[i] + rnorm(1, mean = 0, sd = 0.1) |> # Add small random value
+        round(x = _, digits = 1)
     }
   }
 

@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Genetic Algorithm Optimization Vignette
+
 ## Introduction
 
 This vignette demonstrates how to use the `genetic.algo.optimizeR` package to optimize the function \( f(x) = x^2 - 4x + 4 \) using a genetic algorithm.

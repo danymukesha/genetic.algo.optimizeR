@@ -73,3 +73,43 @@ graph TD;
     F --> Z2(Offspring 2: x = 3);
 ```
 
+## Usage
+```{r usage}
+library(genetic.algo.optimizeR)
+
+# Initialize population
+population <- initialize_population(population_size = 3, min = 0, max = 3)
+print("Initial Population:")
+print(population)
+
+while (TRUE) {
+  # Evaluate fitness
+  fitness <- evaluate_fitness(population)
+  print("Evaluation:")
+  print(fitness)
+  
+  
+  # Check if the fitness of every individual is close to zero
+  if (all(abs(fitness) <= 0.01)) {
+    print("Termination Condition Reached: All individuals have fitness close to zero.")
+    break
+  }
+  
+  # Selection
+  selected_parents <- selection(population, fitness, num_parents = 2)
+  print("Selection:")
+  print(selected_parents)
+  
+  # Crossover and Mutation
+  offspring <- crossover(selected_parents, offspring_size = 2)
+  mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
+  print("Crossover and Mutation:")
+  print(mutated_offspring)
+  
+  # Replacement
+  population <- replacement(population, mutated_offspring, num_to_replace = 1)
+  print("Replacement:")
+  print(population)
+}
+
+```
