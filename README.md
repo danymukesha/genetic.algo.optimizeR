@@ -45,7 +45,7 @@ Here’s a breakdown of the aim and the results:
 
 - **Replacement**:
 
-  - We replace individual $x_1$ with offspring $x_1'$, maintaining the
+  - We replace individual $x_3$ with offspring $x_1'$, maintaining the
     population size.
 
 After multiple generations of repeating these steps, the genetic
@@ -83,7 +83,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 1 2 3
+#> [1] 0 2 1
 
 while (TRUE) {
   # Evaluate fitness
@@ -115,17 +115,17 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 1 0 1
+#> [1] 4 0 1
 #> [1] "Selection:"
 #> [1] 2 1
 #> [1] "Crossover and Mutation:"
-#> [1] 1 1
+#> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 1 2 1
+#> [1] 0 2 2
 #> [1] "Evaluation:"
-#> [1] 1 0 1
+#> [1] 4 0 0
 #> [1] "Selection:"
-#> [1] 2 1
+#> [1] 2 2
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
@@ -134,3 +134,27 @@ while (TRUE) {
 #> [1] 0 0 0
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 ```
+
+The above example illustrates the process of a genetic algorithm, where
+individuals are selected, crossed over, and replaced iteratively to
+improve the population towards finding the optimal solution(i.e. fitting
+population).
+
+1.  Initialize Population:
+    - Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).
+2.  Evaluate Fitness:
+    - Calculate fitness for each individual:
+      - X1: f(1) = 1^2 - 4\*1 + 4 = 1
+      - X2: f(3) = 3^2 - 4\*3 + 4 = 1
+      - X3: f(0) = 0^2 - 4\*0 + 4 = 4
+3.  Selection:
+    - Select parents for crossover:
+      - Y1(x=1), Y2(x=3)
+4.  Crossover and Mutation:
+    - Generate offspring through crossover and mutation:
+      - Z1(x=1), Z2(x=3) (no mutation in this example)
+5.  Replacement:
+    - Replace individuals in the population:
+      - Replace X3 with Z1, maintaining the population size.
+6.  Repeat Steps 2-5 for multiple generations until a termination
+    condition is met.
