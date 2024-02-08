@@ -1,11 +1,7 @@
--   [Genetic Algorithm Optimization
-    Vignette](#genetic-algorithm-optimization-vignette)
-    -   [Introduction](#introduction)
-    -   [Aim](#aim)
-    -   [Results](#results)
-    -   [Conclusion](#conclusion)
-
-# Genetic Algorithm Optimization Vignette
+-   [Introduction](#introduction)
+-   [Aim](#aim)
+-   [Results](#results)
+-   [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -31,7 +27,7 @@ We start with a population of three individuals: *x*<sub>1</sub> = 1,
     # Initialize population
     population <- initialize_population(population_size = 3)
     population
-    #> [1] -3.0572474  9.0573911 -0.2312613
+    #> [1] 89 40 86
 
 ### Evaluation
 
@@ -41,7 +37,7 @@ each *x* value:
     # Evaluate fitness
     fitness <- evaluate_fitness(population)
     fitness
-    #> [1] 25.575751 49.806769  4.978527
+    #> [1] 7569 1444 7056
 
 ### Selection
 
@@ -51,7 +47,7 @@ crossover because they have higher fitness.
     # Perform selection
     selected_parents <- selection(population, fitness, num_parents = 2)
     selected_parents
-    #> [1]  9.057391 -3.057247
+    #> [1] 40 86
 
 ### Crossover and Mutation
 
@@ -61,12 +57,12 @@ offspring: *x*<sub>1</sub>′ = 1, *x*<sub>2</sub>′ = 3.
     # Perform crossover
     offspring <- crossover(selected_parents, offspring_size = 2)
     offspring
-    #> [1] 9.057391 9.057391
+    #> [1] 63 63
 
     # Perform mutation
     mutated_offspring <- mutation(offspring, mutation_rate = 0.1)
     mutated_offspring
-    #> [1] 9.089813 9.129477
+    #> [1] 63 63
 
 ### Replacement
 
@@ -76,7 +72,7 @@ maintaining the population size.
     # Replace individuals in the population
     new_population <- replacement(population, mutated_offspring, num_to_replace = 1)
     new_population
-    #> [1]  9.0898129  9.0573911 -0.2312613
+    #> [1] 89 63 86
 
     # Termination
     # Repeat the above steps for multiple generations or until a termination condition is met.

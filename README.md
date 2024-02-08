@@ -83,7 +83,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 2 1
+#> [1] 2 3 0
 
 while (TRUE) {
   # Evaluate fitness
@@ -115,15 +115,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 0 1
+#> [1] 0 1 4
 #> [1] "Selection:"
-#> [1] 2 1
+#> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 0 2 2
+#> [1] 2 2 0
 #> [1] "Evaluation:"
-#> [1] 4 0 0
+#> [1] 0 0 4
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -140,16 +140,65 @@ individuals are selected, crossed over, and replaced iteratively to
 improve the population towards finding the optimal solution(i.e. fitting
 population).
 
+***In theory***
+
 1.  Initialize Population:
     - Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).
 2.  Evaluate Fitness:
-    - Calculate fitness for each individual:
+    - Calculate fitness(`f(x)`) for each individual:
+
       - X1: f(1) = 1^2 - 4\*1 + 4 = 1
       - X2: f(3) = 3^2 - 4\*3 + 4 = 1
       - X3: f(0) = 0^2 - 4\*0 + 4 = 4
+
+      Coding the function f(x) in R A quadratic function is a function
+      of the form: ax2+bx+c where a≠0
+
+      So for$f(x) = x^2 - 4x + 4$
+
+In R, we write:
+
+``` r
+a = 1
+b = -4
+c = 4
+f = function(x) {
+  a*x^2 + b*x + c
+}
+```
+
+Plotting the quadratic function f(x) First, we have to choose a domain
+over which we want to plot f(x).
+
+Let’s try 0 ≤ x ≤ 3:
+
+``` r
+# domain over which we want to plot f(x)
+x = seq(from=0, to=4, length.out=100)
+# plot f(x)
+plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+# plot the x and y axes
+abline(v = 0,h = 0,  col = "blue", lty = 3)
+points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 1.5, lty = 3)
+points(c(0), c(f(0)), col = "blue",pch = 8, cex = 1.5, lty = 3)
+```
+
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
 3.  Selection:
     - Select parents for crossover:
+
       - Y1(x=1), Y2(x=3)
+
+``` r
+# plot f(x)
+plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+# plot the x and y axes
+points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
 4.  Crossover and Mutation:
     - Generate offspring through crossover and mutation:
       - Z1(x=1), Z2(x=3) (no mutation in this example)
@@ -158,3 +207,89 @@ population).
       - Replace X3 with Z1, maintaining the population size.
 6.  Repeat Steps 2-5 for multiple generations until a termination
     condition is met.
+
+The optimal/fitting individuals *F* of a quadratic equation, in this
+case the lowest point on the graph of f(x), is:
+$F(\frac{−b}{2a},f(\frac{−b}{2a}))$
+
+``` r
+find.fitting = function(a, b, c) {
+  x_fitting = -b/(2 * a)
+  y_fitting = f(x_fitting)
+  c(x_fitting, y_fitting)
+}
+F = find.fitting(a, b, c)
+```
+
+Adding the Fitting to the plot:
+
+``` r
+# plot f(x)
+plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+# plot the x and y axes
+abline(h = 0)
+abline(v = 0)
+# add the vertex to the plot
+points(x = F[1], y = F[2],
+       pch = 18, cex = 2, col = 'red') # pch controls the form of the point and cex controls its size
+# add a label next to the point
+text(x = F[1], y = F[2],
+     labels = "Fitting", pos = 3, col = 'red', font = 10) # pos = 3 places the text above the point
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
+***Existing alternative solution***
+
+Finding the x-intercepts of ***f(x)***
+
+The x-intercepts are the solutions of the quadratic equation f(x) = 0;
+they can be found by using the quadratic formula:
+
+$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
+
+The quantity $b2–4ac$ is called the discriminant:
+
+- if the discriminant is positive, then *f(x)* has 2 solutions
+  (i.e. x-intercepts).
+- if the discriminant is zero, then *f(x)* has 1 solution (i.e. 1
+  x-intercept).
+- if the discriminant is negative, then *f(x)* has no real solutions
+  (i.e. does not intersect the x-axis).
+
+``` r
+# find the x-intercepts of f(x)
+find.roots = function(a, b, c) {
+  discriminant = b^2 - 4 * a * c
+  if (discriminant > 0) {
+    c((-b - sqrt(discriminant))/(2 * a), (-b + sqrt(discriminant))/(2 * a))
+  }
+  else if (discriminant == 0) {
+    -b / (2 * a)
+  }
+  else {
+    NaN
+  }
+}
+solutions = find.roots(a, b, c)
+```
+
+Adding the x-intercepts to the plot:
+
+``` r
+# plot f(x)
+plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+# plot the x and y axes
+abline(h = 0)
+abline(v = 0)
+# add the x-intercepts to the plot
+points(x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
+       pch = 18, cex = 2, col = 'red')
+text(x = solutions, y = rep(0, length(solutions)),
+     labels = rep("Fitting(x-intercept)", length(solutions)),
+      pos = 3, col = 'red', font = 10)
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
