@@ -136,7 +136,7 @@ population
 
         Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
 
-        So for$f(x) = x^2 - 4x + 4$
+  So for $f(x) = x^2 - 4x + 4$
 
 In R, we write:
 

@@ -83,7 +83,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 3 0 1
+#> [1] 1 0 2
 
 while (TRUE) {
   # Evaluate fitness
@@ -115,23 +115,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 1 4 1
+#> [1] 1 4 0
 #> [1] "Selection:"
-#> [1] 3 1
-#> [1] "Crossover and Mutation:"
-#> [1] 1 1
-#> [1] "Replacement:"
-#> [1] 3 1 1
-#> [1] "Evaluation:"
-#> [1] 1 1 1
-#> [1] "Selection:"
-#> [1] 3 1
+#> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 3 2 2
+#> [1] 2 0 2
 #> [1] "Evaluation:"
-#> [1] 1 0 0
+#> [1] 0 4 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -174,7 +166,7 @@ population
       Coding the function f(x) in R A quadratic function is a function
       of the form: ax2+bx+c where a≠0
 
-      So for$f(x) = x^2 - 4x + 4$
+So for $f(x) = x^2 - 4x + 4$
 
 In R, we write:
 
