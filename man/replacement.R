@@ -1,5 +1,0 @@
-replacement <- function(population, offspring, num_to_replace) {
-  num_population <- length(population)
-  population[1:num_to_replace] <- offspring[1:num_to_replace]
-  return(population)
-}
