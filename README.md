@@ -83,7 +83,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 2 3 0
+#> [1] 1 3 0
 
 while (TRUE) {
   # Evaluate fitness
@@ -115,15 +115,23 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
+#> [1] 1 1 4
+#> [1] "Selection:"
+#> [1] 1 3
+#> [1] "Crossover and Mutation:"
+#> [1] 2 2
+#> [1] "Replacement:"
+#> [1] 2 3 0
+#> [1] "Evaluation:"
 #> [1] 0 1 4
 #> [1] "Selection:"
 #> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 2 0
+#> [1] 2 3 2
 #> [1] "Evaluation:"
-#> [1] 0 0 4
+#> [1] 0 1 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -144,6 +152,7 @@ population).
 
 1.  Initialize Population:
     - Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).
+      note: the values are random
 2.  Evaluate Fitness:
     - Calculate fitness(`f(x)`) for each individual:
 
@@ -183,7 +192,7 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 1.5, lty = 3)
 points(c(0), c(f(0)), col = "blue",pch = 8, cex = 1.5, lty = 3)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-initial_poputation-1.png" width="70%" />
 
 3.  Selection:
     - Select parents for crossover:
@@ -197,7 +206,7 @@ plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
 points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-selection-1.png" width="70%" />
 
 4.  Crossover and Mutation:
     - Generate offspring through crossover and mutation:
@@ -237,7 +246,7 @@ text(x = F[1], y = F[2],
      labels = "Fitting", pos = 3, col = 'red', font = 10) # pos = 3 places the text above the point
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-fitting_plot-1.png" width="70%" />
 
 ***Existing alternative solution***
 
@@ -292,4 +301,4 @@ text(x = solutions, y = rep(0, length(solutions)),
       pos = 3, col = 'red', font = 10)
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-plot_intercepts-1.png" width="70%" />
