@@ -54,9 +54,9 @@ In this example, since it’s simple and the solution space is small, we
 could expect the algorithm to converge relatively quickly towards the
 optimal solution $x = 2$, where $f(x) = 0$.
 
-[***Explaining Graph***](man/mermaid_graphs/explained_graph.md)
-![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
-
+[***Explaining Graph***](vignettes/explaining_graph.md) ![Web
+capture_8-2-2024_233215_mermaid
+live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
 
 ## Usage
 
@@ -68,7 +68,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 3 1
+#> [1] 1 2 3
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -104,23 +104,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 1
+#> [1] 1 0 1
 #> [1] "Selection:"
-#> [1] 3 1
+#> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 3 1
+#> [1] 1 2 2
 #> [1] "Evaluation:"
-#> [1] 0 1 1
-#> [1] "Selection:"
-#> [1] 2 3
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 2 3 2
-#> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 1 0 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -132,7 +124,7 @@ while (TRUE) {
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 
 print(paste("Total generations/reputations:", generation))
-#> [1] "Total generations/reputations: 4"
+#> [1] "Total generations/reputations: 3"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
@@ -143,6 +135,7 @@ population).
 ***In theory***
 
 1.  Initialize Population:
+
     - Start with a population of individuals: X1(x=1), X2(x=3),
       X3(x=0).  
       (Note: the values are random and the population should be highly
@@ -150,13 +143,14 @@ population).
     - The space of x value is kept integer type and on range from 0 to
       3,for simplification.
 
-``` r
-population <- c(1, 3, 0)
-population
-#> [1] 1 3 0
-```
+    ``` r
+    population <- c(1, 3, 0)
+    population
+    #> [1] 1 3 0
+    ```
 
 2.  Evaluate Fitness:
+
     - Calculate fitness(`f(x)`) for each individual:
 
       - X1: f(1) = 1^2 - 4\*1 + 4 = 1
@@ -229,7 +223,7 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
 
 The optimal/fitting individuals *F* of a quadratic equation, in this
 case the lowest point on the graph of f(x), is: $$
-F(\frac{−b}{2a},f(\frac{−b}{2a}))
+F\left(\frac{-b}{2a}, f\left(\frac{-b}{2a}\right)\right)
 $$
 
 ``` r
@@ -266,9 +260,10 @@ Finding the x-intercepts of ***f(x)***
 The x-intercepts are the solutions of the quadratic equation f(x) = 0;
 they can be found by using the quadratic formula:
 
+<span class="math display"> $$
+x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}.
 $$
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-$$
+</p>
 
 The quantity $b2–4ac$ is called the discriminant:
 
@@ -279,7 +274,7 @@ The quantity $b2–4ac$ is called the discriminant:
 - if the discriminant is negative, then *f(x)* has no real solutions
   (i.e. does not intersect the x-axis).
 
-<img src="man/figures/README-intercepts.png" width="70%" />
+<img src="man/figures/README-intercepts.png" width="70%"/>
 
 ``` r
 # find the x-intercepts of f(x)

@@ -54,8 +54,9 @@ Here's a breakdown of the aim and the results:
 
 After multiple generations of repeating these steps, the genetic algorithm aims to converge towards an optimal or near-optimal solution. In this example, since it's simple and the solution space is small, we could expect the algorithm to converge relatively quickly towards the optimal solution $x = 2$, where $f(x) = 0$.
 
-[***Explaining Graph***](man/mermaid_graphs/explained_graph.md)
- 
+[***Explaining Graph***](vignettes/explaining_graph.md) 
+![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
+
 ## Usage
 
 ```{r usage}
@@ -108,14 +109,18 @@ The above example illustrates the process of a genetic algorithm, where individu
 ***In theory***
 
 1.  Initialize Population:
+
     -   Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).\
-    (Note: the values are random and the population should be highly diversified)
+        (Note: the values are random and the population should be highly diversified)
     -   The space of x value is kept integer type and on range from 0 to 3,for simplification.
-```{r}
-population <- c(1, 3, 0)
-population
-```
+
+    ```{r}
+    population <- c(1, 3, 0)
+    population
+    ```
+
 2.  Evaluate Fitness:
+
     -   Calculate fitness(`f(x)`) for each individual:
 
         -   X1: f(1) = 1\^2 - 4\*1 + 4 = 1
@@ -124,12 +129,11 @@ population
 
         Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
 
-  So for:
-  
+So for:
+
 $$
 f(x) = x^2 - 4x + 4
-$$
-\
+$$\
 In R, we write:
 
 ```{r}
@@ -181,9 +185,8 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
         -   Replace X3 with Z1, maintaining the population size.
 6.  Repeat Steps 2-5 for multiple generations until a termination condition is met.
 
-The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: 
-$$
-F(\frac{−b}{2a},f(\frac{−b}{2a}))
+The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: $$
+F\left(\frac{-b}{2a}, f\left(\frac{-b}{2a}\right)\right)
 $$
 
 ```{r fitting, out.width="70%", fig.cap=""}
@@ -213,15 +216,15 @@ text(x = F[1], y = F[2],
 
 ***Existing alternative solution***
 
-
-
 Finding the x-intercepts of ***f(x)***
 
 The x-intercepts are the solutions of the quadratic equation f(x) = 0; they can be found by using the quadratic formula:
 
+<span class="math display">
 $$
-x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}.
 $$
+</p>
 
 The quantity $b2–4ac$ is called the discriminant:
 
@@ -229,8 +232,7 @@ The quantity $b2–4ac$ is called the discriminant:
 -   if the discriminant is zero, then *f(x)* has 1 solution (i.e. 1 x-intercept).
 -   if the discriminant is negative, then *f(x)* has no real solutions (i.e. does not intersect the x-axis).
 
-<img src="man/figures/README-intercepts.png" width="70%" />
-
+<img src="man/figures/README-intercepts.png" width="70%"/>
 
 ```{r function_intercepts}
 # find the x-intercepts of f(x)
@@ -250,6 +252,7 @@ solutions = find.roots(a, b, c)
 ```
 
 Adding the x-intercepts to the plot:
+
 ```{r plot_intercepts, out.width="70%", fig.cap=""}
 # plot f(x)
 plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
@@ -263,4 +266,3 @@ text(x = solutions, y = rep(0, length(solutions)),
      labels = rep("Fitting(x-intercept)", length(solutions)),
       pos = 3, col = 'red', font = 10)
 ```
-

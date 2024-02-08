@@ -1,3 +1,11 @@
+---
+title: "Explaining Graph"
+author: "Dany Mukesha"
+output: 
+  md_document:
+    toc: true
+    toc_depth: 2
+---
 
 ***Explaining Graph***
 
@@ -17,3 +25,4 @@ graph TD;
     F -->|Example:| Z1(Offspring 1: x = 1);
     F --> Z2(Offspring 2: x = 3);
 ```
+![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
