@@ -55,6 +55,8 @@ could expect the algorithm to converge relatively quickly towards the
 optimal solution $x = 2$, where $f(x) = 0$.
 
 [***Explaining Graph***](man/mermaid_graphs/explained_graph.md)
+![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
+
 
 ## Usage
 
