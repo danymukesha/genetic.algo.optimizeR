@@ -1,9 +1,9 @@
--   [Introduction](#introduction)
+-   [Overview](#overview)
 -   [Aim](#aim)
--   [Results](#results)
--   [Conclusion](#conclusion)
+-   [Method](#method)
+-   [Warp-Up](#warp-up)
 
-## Introduction
+## Overview
 
 This vignette demonstrates how to use the `genetic.algo.optimizeR`
 package to optimize the function *f*(*x*) = *x*<sup>2</sup> − 4*x* + 4
@@ -14,7 +14,7 @@ using a genetic algorithm.
 Optimize the function *f*(*x*) = *x*<sup>2</sup> − 4*x* + 4 to find the
 value of *x* that minimizes the function.
 
-## Results
+## Method
 
 ### Initial Population
 
@@ -27,7 +27,7 @@ We start with a population of three individuals: *x*<sub>1</sub> = 1,
     # Initialize population
     population <- initialize_population(population_size = 3, min = 0, max = 3)
     population
-    #> [1] 1 2 3
+    #> [1] 0 1 2
 
 ### Evaluation
 
@@ -37,7 +37,7 @@ each *x* value:
     # Evaluate fitness
     fitness <- evaluate_fitness(population)
     fitness
-    #> [1] 1 0 1
+    #> [1] 4 1 0
 
 ### Selection
 
@@ -57,12 +57,12 @@ offspring: *x*<sub>1</sub>′ = 1, *x*<sub>2</sub>′ = 3.
     # Perform crossover
     offspring <- crossover(selected_parents, offspring_size = 2)
     offspring
-    #> [1] 1.5 1.5
+    #> [1] 1 1
 
     # Perform mutation
     mutated_offspring <- mutation(offspring, mutation_rate = 0.1)
     mutated_offspring
-    #> [1] 1.5 1.5
+    #> [1] 1 1
 
 ### Replacement
 
@@ -72,12 +72,12 @@ maintaining the population size.
     # Replace individuals in the population
     new_population <- replacement(population, mutated_offspring, num_to_replace = 1)
     new_population
-    #> [1] 1.0 2.0 1.5
+    #> [1] 0 1 1
 
     # Termination
     # Repeat the above steps(from Evaluation) for multiple generations or until a termination condition is met.
 
-## Conclusion
+## Warp-Up
 
 This vignette demonstrates the usage of the `genetic.algo.optimizeR`
 package to optimize the given function using a genetic algorithm. Users

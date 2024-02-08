@@ -1,5 +1,5 @@
 ---
-title: "Genetic Algorithm Optimization Vignette (Theory)"
+title: "Theory"
 author: "Dany Mukesha"
 output: 
   md_document:
@@ -10,13 +10,20 @@ output:
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "figures/theory-",
+  out.width = "100%"
 )
 ```
 
 
 
-***In theory***
+***Theory***
+
+```{r setup, results='hide', warning = FALSE, message = FALSE, include = FALSE}
+library(ggplot2)
+library(dplyr)
+```
 
 1.  Initialize Population:
     -   Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).\
@@ -48,43 +55,45 @@ f = function(x) {
 }
 ```
 
-```{r}
-evaluate_fitness <- function(population) {
-  fitness <- population^2 - 4 * population + 4
-  return(fitness)
-}
-```
-
 
 Plotting the quadratic function f(x) First, we have to choose a domain over which we want to plot f(x).
 
 Let’s try 0 ≤ x ≤ 3:
 
-```{r initial_poputation}
+```{r initial_poputation, out.width="70%", fig.cap=""}
 # Define the domain over which we want to plot f(x)
 x <- seq(from=0, to=4, length.out=100)
 
-# Create a data frame with x values
-df <- data.frame(x = x)
+# Define the domain over which we want to plot f(x) and create df data frame
+df <- x |>
+  data.frame(x =_) |>
+  dplyr::mutate(y = f(x))
 
-# Add a column with the corresponding y values
-df$y <- f(df$x)
+# Define the space over which we want to population to be
+possible_xvalues <- seq(from=0, to=3, length.out=4)
 
-# Evaluate the population fitness
-fitness <- evaluate_fitness(population)
+# Create space data frame
+space <- possible_xvalues |>
+  data.frame(x = _) |>
+  dplyr::mutate(y = f(x))
+
+# Calculate fitness inline
+fitness <- population^2 - 4 * population + 4
 
 # Selected the surviving parents
-selected_parents <- selection(population, fitness, num_parents = 2)
+num_parents <- 2
+selected_parents <- population |>
+  order(fitness, decreasing = FALSE) |>
+  head(num_parents)
 
 # Plot f(x) using ggplot
 ggplot2::ggplot(df, aes(x = x, y = y)) +
   geom_line(color = "black") +  # Plot the function as a line
-  geom_point(data = subset(df, x %in% c(1,3)), color = "coral1", size = 3, shape = 8) +  # Plot points at x=1 and x=3
-  geom_point(data = subset(df, (x ==0 )), color = "blue", size = 3, shape = 8) +  # Plot a point at x=0
+  geom_point(data = subset(space, x %in% c(1,3)), color = "coral1", size = 3, shape = 8) +  # Plot points at x=1 and x=3
+  geom_point(data = subset(space, (x ==0 )), color = "blue", size = 3, shape = 8) +  # Plot a point at x=0
   geom_hline(yintercept = 0, linetype = "dashed", color = "blue") +  # Add horizontal line at y=0
   geom_vline(xintercept = 0, linetype = "dashed", color = "blue") +  # Add vertical line at x=0
-  theme_minimal()  # Use a minimal theme
-
+  theme_minimal()
 ```
 
 3.  Selection:
@@ -96,7 +105,7 @@ ggplot2::ggplot(df, aes(x = x, y = y)) +
 # Plot f(x) using ggplot
 ggplot(df, aes(x = x, y = y)) +
   geom_line(color = "black") +  # Plot the function as a line
-  geom_point(data = subset(df, x %in% c(1, 3)), color = "coral1", size = 6, shape = 8) +  # Plot points at x=1 and x=3
+  geom_point(data = subset(space, x %in% c(1, 3)), color = "coral1", size = 6, shape = 8) +  # Plot points at x=1 and x=3
   geom_hline(yintercept = 0, linetype = "dashed", color = "blue") +  # Add horizontal line at y=0
   geom_vline(xintercept = 0, linetype = "dashed", color = "blue") +  # Add vertical line at x=0
   theme_minimal()  # Use a minimal theme
@@ -110,7 +119,11 @@ ggplot(df, aes(x = x, y = y)) +
         -   Replace X3 with Z1, maintaining the population size.
 6.  Repeat Steps 2-5 for multiple generations until a termination condition is met.
 
-The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: $F(\frac{−b}{2a},f(\frac{−b}{2a}))$
+The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: 
+
+$$
+F(\frac{−b}{2a},f(\frac{−b}{2a}))
+$$
 
 ```{r fitting, out.width="70%", fig.cap=""}
 find.fitting = function(a, b, c) {

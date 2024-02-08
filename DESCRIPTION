@@ -2,10 +2,14 @@ Package: genetic.algo.optimizeR
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Dany Mukesha
+Authors@R: c(
+    person("Dany", "Mukesha", , "danymukesha@gmail.com", role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0003-4757-117X")
+    )
+  )
 Maintainer: The package maintainer <danymukesha@gmail.com>
 Description: R package for learning purposes that implements a genetic algorithm optimization process.
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests: 
@@ -13,3 +17,7 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
+home:
+  title: Genetic Algorithm Optimization
+  description: >
+    R package for learning purposes that implements a genetic algorithm optimization process.

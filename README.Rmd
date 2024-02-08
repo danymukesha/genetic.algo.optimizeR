@@ -54,25 +54,8 @@ Here's a breakdown of the aim and the results:
 
 After multiple generations of repeating these steps, the genetic algorithm aims to converge towards an optimal or near-optimal solution. In this example, since it's simple and the solution space is small, we could expect the algorithm to converge relatively quickly towards the optimal solution $x = 2$, where $f(x) = 0$.
 
-***Explaining Graph***
-
-``` mermaid
-graph TD;
-    A[Initialize Population] --> B(Evaluate Fitness);
-    B --> C[Selection];
-    C --> D{Termination Condition?};
-    D -->|Yes| E[End];
-    D -->|No| F[Crossover and Mutation];
-    F --> G[Replace Population];
-    G --> B;
-    B -->|Example:| X1(Individual 1: x = 1);
-    B --> X2(Individual 2: x = 3);
-    B --> X3(Individual 3: x = 0);
-    C -->|Example:| Y1(Selected Parents: x = 1, x = 3);
-    F -->|Example:| Z1(Offspring 1: x = 1);
-    F --> Z2(Offspring 2: x = 3);
-```
-
+[***Explaining Graph***](man/mermaid_graphs/explained_graph.md)
+ 
 ## Usage
 
 ```{r usage}
@@ -198,7 +181,10 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
         -   Replace X3 with Z1, maintaining the population size.
 6.  Repeat Steps 2-5 for multiple generations until a termination condition is met.
 
-The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: $F(\frac{−b}{2a},f(\frac{−b}{2a}))$
+The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: 
+$$
+F(\frac{−b}{2a},f(\frac{−b}{2a}))
+$$
 
 ```{r fitting, out.width="70%", fig.cap=""}
 find.fitting = function(a, b, c) {

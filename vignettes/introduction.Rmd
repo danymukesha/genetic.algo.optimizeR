@@ -1,5 +1,5 @@
 ---
-title: "Genetic Algorithm Optimization Vignette (Usage)"
+title: "Introduction"
 author: "Dany Mukesha"
 output: 
   md_document:
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 
-## Introduction
+## Overview
 
 This vignette demonstrates how to use the `genetic.algo.optimizeR` package to optimize the function \( f(x) = x^2 - 4x + 4 \) using a genetic algorithm.
 
@@ -23,7 +23,7 @@ This vignette demonstrates how to use the `genetic.algo.optimizeR` package to op
 
 Optimize the function \( f(x) = x^2 - 4x + 4 \) to find the value of \( x \) that minimizes the function.
 
-## Results
+## Method
 
 ### Initial Population
 
@@ -90,7 +90,7 @@ new_population
 # Repeat the above steps(from Evaluation) for multiple generations or until a termination condition is met.
 ```
 
-## Conclusion
+## Warp-Up
 
 This vignette demonstrates the usage of the `genetic.algo.optimizeR` package to optimize the given function using a genetic algorithm. Users can follow similar steps to optimize other functions or customize the parameters as needed.
 ```

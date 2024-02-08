@@ -54,24 +54,7 @@ In this example, since it’s simple and the solution space is small, we
 could expect the algorithm to converge relatively quickly towards the
 optimal solution $x = 2$, where $f(x) = 0$.
 
-***Explaining Graph***
-
-``` mermaid
-graph TD;
-    A[Initialize Population] --> B(Evaluate Fitness);
-    B --> C[Selection];
-    C --> D{Termination Condition?};
-    D -->|Yes| E[End];
-    D -->|No| F[Crossover and Mutation];
-    F --> G[Replace Population];
-    G --> B;
-    B -->|Example:| X1(Individual 1: x = 1);
-    B --> X2(Individual 2: x = 3);
-    B --> X3(Individual 3: x = 0);
-    C -->|Example:| Y1(Selected Parents: x = 1, x = 3);
-    F -->|Example:| Z1(Offspring 1: x = 1);
-    F --> Z2(Offspring 2: x = 3);
-```
+[***Explaining Graph***](man/mermaid_graphs/explained_graph.md)
 
 ## Usage
 
@@ -83,7 +66,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 2 1 0
+#> [1] 0 3 1
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -119,15 +102,23 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 0 1 4
+#> [1] 4 1 1
 #> [1] "Selection:"
-#> [1] 2 1
+#> [1] 3 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 2 0
+#> [1] 2 3 1
 #> [1] "Evaluation:"
-#> [1] 0 0 4
+#> [1] 0 1 1
+#> [1] "Selection:"
+#> [1] 2 3
+#> [1] "Crossover and Mutation:"
+#> [1] 2 2
+#> [1] "Replacement:"
+#> [1] 2 3 2
+#> [1] "Evaluation:"
+#> [1] 0 1 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -139,7 +130,7 @@ while (TRUE) {
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 
 print(paste("Total generations/reputations:", generation))
-#> [1] "Total generations/reputations: 3"
+#> [1] "Total generations/reputations: 4"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
@@ -235,8 +226,9 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
     condition is met.
 
 The optimal/fitting individuals *F* of a quadratic equation, in this
-case the lowest point on the graph of f(x), is:
-$F(\frac{−b}{2a},f(\frac{−b}{2a}))$
+case the lowest point on the graph of f(x), is: $$
+F(\frac{−b}{2a},f(\frac{−b}{2a}))
+$$
 
 ``` r
 find.fitting = function(a, b, c) {
