@@ -83,9 +83,13 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 3 1
+#> [1] 2 1 0
+
+generation <- 0  # Initialize generation/reputation counter
 
 while (TRUE) {
+  generation <- generation + 1  # Increment generation/reputation count
+  
   # Evaluate fitness
   fitness <- evaluate_fitness(population)
   print("Evaluation:")
@@ -115,23 +119,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 1
+#> [1] 0 1 4
 #> [1] "Selection:"
-#> [1] 3 1
+#> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 3 1
+#> [1] 2 2 0
 #> [1] "Evaluation:"
-#> [1] 0 1 1
-#> [1] "Selection:"
-#> [1] 2 3
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 2 3 2
-#> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 0 0 4
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -141,6 +137,9 @@ while (TRUE) {
 #> [1] "Evaluation:"
 #> [1] 0 0 0
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
+
+print(paste("Total generations/reputations:", generation))
+#> [1] "Total generations/reputations: 3"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
@@ -177,8 +176,8 @@ population
 So for:
 
 $$
-  f(x) = x^2 - 4x + 4
-  $$  
+f(x) = x^2 - 4x + 4
+$$  
 In R, we write:
 
 ``` r
@@ -285,6 +284,8 @@ The quantity $b2–4ac$ is called the discriminant:
   x-intercept).
 - if the discriminant is negative, then *f(x)* has no real solutions
   (i.e. does not intersect the x-axis).
+
+<img src="man/figures/README-intercepts.png" width="70%" />
 
 ``` r
 # find the x-intercepts of f(x)

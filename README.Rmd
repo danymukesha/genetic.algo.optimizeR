@@ -83,7 +83,11 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 print(population)
 
+generation <- 0  # Initialize generation/reputation counter
+
 while (TRUE) {
+  generation <- generation + 1  # Increment generation/reputation count
+  
   # Evaluate fitness
   fitness <- evaluate_fitness(population)
   print("Evaluation:")
@@ -113,6 +117,7 @@ while (TRUE) {
   print(population)
 }
 
+print(paste("Total generations/reputations:", generation))
 ```
 
 The above example illustrates the process of a genetic algorithm, where individuals are selected, crossed over, and replaced iteratively to improve the population towards finding the optimal solution(i.e. fitting population).
@@ -138,9 +143,9 @@ population
 
   So for:
   
-  $$
-  f(x) = x^2 - 4x + 4
-  $$
+$$
+f(x) = x^2 - 4x + 4
+$$
 \
 In R, we write:
 
@@ -237,6 +242,8 @@ The quantity $b2–4ac$ is called the discriminant:
 -   if the discriminant is positive, then *f(x)* has 2 solutions (i.e. x-intercepts).
 -   if the discriminant is zero, then *f(x)* has 1 solution (i.e. 1 x-intercept).
 -   if the discriminant is negative, then *f(x)* has no real solutions (i.e. does not intersect the x-axis).
+
+<img src="man/figures/README-intercepts.png" width="70%" />
 
 
 ```{r function_intercepts}
