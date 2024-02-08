@@ -83,7 +83,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 1 3 0
+#> [1] 3 0 1
 
 while (TRUE) {
   # Evaluate fitness
@@ -115,23 +115,23 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 1 1 4
+#> [1] 1 4 1
 #> [1] "Selection:"
-#> [1] 1 3
+#> [1] 3 1
+#> [1] "Crossover and Mutation:"
+#> [1] 1 1
+#> [1] "Replacement:"
+#> [1] 3 1 1
+#> [1] "Evaluation:"
+#> [1] 1 1 1
+#> [1] "Selection:"
+#> [1] 3 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 3 0
+#> [1] 3 2 2
 #> [1] "Evaluation:"
-#> [1] 0 1 4
-#> [1] "Selection:"
-#> [1] 2 3
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 2 3 2
-#> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 1 0 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -151,8 +151,19 @@ population).
 ***In theory***
 
 1.  Initialize Population:
-    - Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).
-      note: the values are random
+    - Start with a population of individuals: X1(x=1), X2(x=3),
+      X3(x=0).  
+      (Note: the values are random and the population should be highly
+      diversified)
+    - The space of x value is kept integer type and on range from 0 to
+      3,for simplification.
+
+``` r
+population <- c(1, 3, 0)
+population
+#> [1] 1 3 0
+```
+
 2.  Evaluate Fitness:
     - Calculate fitness(`f(x)`) for each individual:
 
@@ -189,7 +200,10 @@ plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
 # plot the x and y axes
 abline(v = 0,h = 0,  col = "blue", lty = 3)
 points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 1.5, lty = 3)
+text(c(1, 3), c(f(1), f(3)), labels = c("(x=1, f(x=1))", "(x=3, f(x=3))"), pos = 3)
+
 points(c(0), c(f(0)), col = "blue",pch = 8, cex = 1.5, lty = 3)
+text(c(0), c(f(0)), labels = "(x=0, f(x=0))", pos = 1, font = 2)
 ```
 
 <img src="man/figures/README-initial_poputation-1.png" width="70%" />
@@ -204,6 +218,7 @@ points(c(0), c(f(0)), col = "blue",pch = 8, cex = 1.5, lty = 3)
 plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
 # plot the x and y axes
 points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
+  text(c(1, 3), c(f(1), f(3)), labels = c("(x=1, f(x=1))", "(x=3, f(x=3))"), pos = 3, font = 2)
 ```
 
 <img src="man/figures/README-selection-1.png" width="70%" />
