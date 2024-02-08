@@ -1,5 +1,5 @@
 ---
-title: "Genetic Algorithm Optimization Vignette"
+title: "Genetic Algorithm Optimization Vignette (Usage)"
 author: "Dany Mukesha"
 output: 
   md_document:
@@ -37,7 +37,7 @@ library(genetic.algo.optimizeR)
 
 ```{r}
 # Initialize population
-population <- initialize_population(population_size = 3)
+population <- initialize_population(population_size = 3, min = 0, max = 3)
 population
 ```
 
@@ -77,7 +77,7 @@ mutated_offspring
 
 ### Replacement
 
-We replace individual \( x_1 \) with offspring \( x_1' \), maintaining the population size.
+We replace individual \( x_3 \) with offspring \( x_1' \), maintaining the population size.
 
 ```{r}
 # Replace individuals in the population
@@ -87,7 +87,7 @@ new_population
 
 ```{r}
 # Termination
-# Repeat the above steps for multiple generations or until a termination condition is met.
+# Repeat the above steps(from Evaluation) for multiple generations or until a termination condition is met.
 ```
 
 ## Conclusion

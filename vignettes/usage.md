@@ -25,9 +25,9 @@ We start with a population of three individuals: *x*<sub>1</sub> = 1,
     library(genetic.algo.optimizeR)
 
     # Initialize population
-    population <- initialize_population(population_size = 3)
+    population <- initialize_population(population_size = 3, min = 0, max = 3)
     population
-    #> [1] 89 40 86
+    #> [1] 1 2 3
 
 ### Evaluation
 
@@ -37,7 +37,7 @@ each *x* value:
     # Evaluate fitness
     fitness <- evaluate_fitness(population)
     fitness
-    #> [1] 7569 1444 7056
+    #> [1] 1 0 1
 
 ### Selection
 
@@ -47,7 +47,7 @@ crossover because they have higher fitness.
     # Perform selection
     selected_parents <- selection(population, fitness, num_parents = 2)
     selected_parents
-    #> [1] 40 86
+    #> [1] 2 1
 
 ### Crossover and Mutation
 
@@ -57,25 +57,25 @@ offspring: *x*<sub>1</sub>′ = 1, *x*<sub>2</sub>′ = 3.
     # Perform crossover
     offspring <- crossover(selected_parents, offspring_size = 2)
     offspring
-    #> [1] 63 63
+    #> [1] 1.5 1.5
 
     # Perform mutation
     mutated_offspring <- mutation(offspring, mutation_rate = 0.1)
     mutated_offspring
-    #> [1] 63 63
+    #> [1] 1.5 1.5
 
 ### Replacement
 
-We replace individual *x*<sub>1</sub> with offspring *x*<sub>1</sub>′,
+We replace individual *x*<sub>3</sub> with offspring *x*<sub>1</sub>′,
 maintaining the population size.
 
     # Replace individuals in the population
     new_population <- replacement(population, mutated_offspring, num_to_replace = 1)
     new_population
-    #> [1] 89 63 86
+    #> [1] 1.0 2.0 1.5
 
     # Termination
-    # Repeat the above steps for multiple generations or until a termination condition is met.
+    # Repeat the above steps(from Evaluation) for multiple generations or until a termination condition is met.
 
 ## Conclusion
 
