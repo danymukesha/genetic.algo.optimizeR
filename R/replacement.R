@@ -7,7 +7,7 @@
 #' \eqn{x}: represents a possible value the an individual from the population can have.
 #'
 #' @param population The list of individuals of the population
-#' @param mutated_offspring The list of mutated offspring.
+#' @param offspring The list of offspring.
 #' @param num_to_replace The number of selected individuals that should be replaced
 #' in the population.
 #'
@@ -20,22 +20,22 @@
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
-#' fitness <- evaluate_fitness(population)
+#' fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 #' print("Evaluation:")
 #' print(fitness)
 #'
 #' #Selection
-#' selected_parents <- selection(population, fitness, num_parents = 2)
+#' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)
 #'
 #' # Crossover and mutation
-#' offspring <- crossover(selected_parents, offspring_size = 2)
+#' offspring <- genetic.algo.optimizeR::crossover(selected_parents, offspring_size = 2)
 #' mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
 #' print(mutated_offspring)
 #'
 #' # Replacement
-#' population <- replacement(population, mutated_offspring, num_to_replace = 1)
+#' population <- genetic.algo.optimizeR::replacement(population, mutated_offspring, num_to_replace = 1)
 #' print("Replacement:")
 #' print(population)
 #' }

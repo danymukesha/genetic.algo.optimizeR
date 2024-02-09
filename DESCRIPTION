@@ -1,13 +1,13 @@
 Package: genetic.algo.optimizeR
 Type: Package
-Title: Genetic Algorthim Optimization
+Title: Genetic Algorithm Optimization
 Version: 0.1.0
 Authors@R: c(
     person("Dany", "Mukesha", , "danymukesha@gmail.com", role = c("aut", "cre"),
       comment = c(ORCID = "0009-0001-9514-751X")
     )
   )
-Maintainer: The package maintainer <danymukesha@gmail.com>
+Maintainer: Dany Mukesha <danymukesha@gmail.com>
 Description: R package for learning purposes that implements a genetic algorithm optimization process.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -19,13 +19,10 @@ Suggests:
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
-home:
-  title: Genetic Algorithm Optimization
-  description: >
-    R package for learning purposes that implements a genetic algorithm optimization process.
 URL: https://danymukesha.github.io/genetic.algo.optimizeR/
 Imports: 
     dplyr,
     ggplot2,
-    rsconnect
+    rsconnect,
+    stats
 Config/testthat/edition: 3

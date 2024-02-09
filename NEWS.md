@@ -1,0 +1,3 @@
+# genetic.algo.optimizeR 0.1.0
+
+* Initial CRAN submission.

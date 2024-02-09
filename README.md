@@ -4,6 +4,10 @@
 # {genetic.algo.optimizeR} <a href="https://danymukesha.github.io/genetic.algo.optimizeR/"><img src="man/figures/logo.png" align="right" height="139" alt="genetic.algo.optimizeR website" /></a>
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CRAN.R-project.org/package=genetic.algo.optimizeR)
 <!-- badges: end -->
 
 The goal of `genetic.algo.optimizeR` is to optimize the function
@@ -68,7 +72,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 3 0 2
+#> [1] 0 1 2
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -104,15 +108,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 1 4 0
+#> [1] 4 1 0
 #> [1] "Selection:"
-#> [1] 2 3
+#> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 0 2
+#> [1] 2 1 2
 #> [1] "Evaluation:"
-#> [1] 0 4 0
+#> [1] 0 1 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"

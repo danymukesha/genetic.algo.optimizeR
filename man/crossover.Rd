@@ -2,14 +2,14 @@
 % Please edit documentation in R/crossover.R
 \name{crossover}
 \alias{crossover}
-\title{Crossover of parents from the fitting population}
+\title{Crossover of  selected parents from the fitting population}
 \usage{
-crossover(parents, offspring_size)
+crossover(selected_parents, offspring_size)
 }
 \arguments{
-\item{offspring_size}{The number of offspring that the selected population should have.}
-
 \item{selected_parents}{The list of selected individuals from the population.}
+
+\item{offspring_size}{The number of offspring that the selected population should have.}
 }
 \value{
 The output expected should be a list of offspring for the next generation.

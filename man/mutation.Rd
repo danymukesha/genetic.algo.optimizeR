@@ -28,25 +28,27 @@ and help the next generation close to the fitness.
 \examples{
 # example of usage
 \dontrun{
+library(genetic.algo.optimize)
 population <- c(1, 3, 0)
 
 # Evaluate fitness
-fitness <- evaluate_fitness(population)
+fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 print("Evaluation:")
 print(fitness)
 
 #Selection
-selected_parents <- selection(population, fitness, num_parents = 2)
+selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 print("Selection:")
 print(selected_parents)
 
 # Crossover
-offspring <- crossover(selected_parents, offspring_size = 2)
+offspring <- genetic.algo.optimizeR::crossover(selected_parents, offspring_size = 2)
 print("Crossover:")
 print(offspring)
 
 #Mutation
-mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
+mutated_offspring <- genetic.algo.optimizeR::mutation(offspring, mutation_rate = 0)
+#(no mutation in this example)
 print(mutated_offspring)
 }
 }

@@ -4,7 +4,7 @@
 \name{genetic.algo.optimizeR-package}
 \alias{genetic.algo.optimizeR}
 \alias{genetic.algo.optimizeR-package}
-\title{genetic.algo.optimizeR: Genetic Algorthim Optimization}
+\title{genetic.algo.optimizeR: Genetic Algorithm Optimization}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

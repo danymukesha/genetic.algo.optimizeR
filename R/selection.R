@@ -7,7 +7,8 @@
 #' \eqn{x}: represents a possible value the an individual from the population can have.
 #'
 #' @param population The list of individuals of the population
-#' @param fitness The list of individuals(value) obtained from \code{\link[evaluate_fitness]{genetic.algo.optimizeR}} of the a population
+#' @param fitness The list of individuals(value) obtained from the function
+#' of \code{\link[genetic.algo.optimizeR]{genetic.algo.optimizeR}} namely `evalute_fitness`.
 #' @param num_parents The number of selected individuals that fit the best with the predefined aim.
 #'
 #' @returns The output expected should be a list of selected individuals
@@ -21,12 +22,12 @@
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
-#' fitness <- evaluate_fitness(population)
+#' fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 #' print("Evaluation:")
 #' print(fitness)
 #'
 #' #Selection
-#' selected_parents <- selection(population, fitness, num_parents = 2)
+#' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)
 #' }

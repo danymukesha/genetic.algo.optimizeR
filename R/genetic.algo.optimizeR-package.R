@@ -4,5 +4,7 @@
 ## usethis namespace: start
 #' @importFrom dplyr %>%
 #' @importFrom ggplot2 ggplot
+#' @import rsconnect
+#' @import stats
 ## usethis namespace: end
 NULL

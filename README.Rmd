@@ -17,6 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml)
+[![CRAN status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CRAN.R-project.org/package=genetic.algo.optimizeR)
 <!-- badges: end -->
 
 The goal of `genetic.algo.optimizeR` is to optimize the function $f(x) = x^2 - 4x + 4$ using a genetic algorithm. The function represents a simple quadratic equation, and the goal is to find the value of $x$ that minimizes the function.

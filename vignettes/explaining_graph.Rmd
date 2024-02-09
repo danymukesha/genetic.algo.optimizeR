@@ -1,10 +1,21 @@
 ---
 title: "Explaining Graph"
-output: 
-  md_document:
-    toc: true
-    toc_depth: 2
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{explaining_graph}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "figures/theory-",
+  out.width = "100%"
+)
+```
 
 ***Explaining Graph***
 

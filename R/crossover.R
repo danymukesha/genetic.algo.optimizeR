@@ -1,4 +1,4 @@
-#' Crossover of parents from the fitting population
+#' Crossover of  selected parents from the fitting population
 #'
 #' This function performs crossover between the selected individuals that fit the best
 #' based on the predefined condition(aim/objective). \cr
@@ -35,16 +35,16 @@
 #' @author Dany Mukesha
 #'
 #' @export
-crossover <- function(parents, offspring_size) {
-  num_parents <- length(parents)
+crossover <- function(selected_parents, offspring_size) {
+  num_parents <- length(selected_parents)
   offspring <- numeric(offspring_size)
 
   for (i in seq(1, offspring_size, by = 2)) {
     parent1_index <- sample(1:num_parents, 1)
     parent2_index <- sample(1:num_parents, 1)
 
-    offspring[i] <- (parents[parent1_index] + parents[parent2_index]) / 2
-    offspring[i+1] <- (parents[parent1_index] + parents[parent2_index]) / 2
+    offspring[i] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
+    offspring[i+1] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
   }
   offspring <- offspring |>
     round(x = _) # facilitate the adaptation of the offspring
