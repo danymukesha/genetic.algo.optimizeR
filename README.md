@@ -68,7 +68,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 1 2 3
+#> [1] 3 2 1
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -106,11 +106,11 @@ while (TRUE) {
 #> [1] "Evaluation:"
 #> [1] 1 0 1
 #> [1] "Selection:"
-#> [1] 2 1
+#> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 1 2 2
+#> [1] 3 2 2
 #> [1] "Evaluation:"
 #> [1] 1 0 0
 #> [1] "Selection:"
@@ -222,7 +222,9 @@ points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
     condition is met.
 
 The optimal/fitting individuals *F* of a quadratic equation, in this
-case the lowest point on the graph of f(x), is: $$
+case the lowest point on the graph of f(x), is:
+
+$$
 F\left(\frac{-b}{2a}, f\left(\frac{-b}{2a}\right)\right)
 $$
 
@@ -260,10 +262,9 @@ Finding the x-intercepts of ***f(x)***
 The x-intercepts are the solutions of the quadratic equation f(x) = 0;
 they can be found by using the quadratic formula:
 
-<span class="math display"> $$
-x=\frac{-b\pm \sqrt{b^2-4ac}}{2a}.
 $$
-</p>
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$
 
 The quantity $b2–4ac$ is called the discriminant:
 
