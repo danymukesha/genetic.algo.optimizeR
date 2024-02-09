@@ -26,5 +26,6 @@ home:
 URL: https://danymukesha.github.io/genetic.algo.optimizeR/
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    rsconnect
 Config/testthat/edition: 3
