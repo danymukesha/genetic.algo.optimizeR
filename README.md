@@ -11,7 +11,7 @@ status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CR
 [![Launch
 binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/danymukesha/genetic.algo.optimizeR/main)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svge)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The goal of `genetic.algo.optimizeR` is to optimize the function
@@ -76,7 +76,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 1 3
+#> [1] 1 3 2
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -112,25 +112,17 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 1
-#> [1] "Selection:"
-#> [1] 1 3
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 2 1 3
-#> [1] "Evaluation:"
-#> [1] 0 1 1
+#> [1] 1 1 0
 #> [1] "Selection:"
 #> [1] 2 1
 #> [1] "Crossover and Mutation:"
-#> [1] 2 2
+#> [1] 1 1
 #> [1] "Replacement:"
-#> [1] 2 1 2
+#> [1] 1 1 2
 #> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 1 1 0
 #> [1] "Selection:"
-#> [1] 2 2
+#> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
@@ -140,7 +132,7 @@ while (TRUE) {
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 
 print(paste("Total generations/reputations:", generation))
-#> [1] "Total generations/reputations: 4"
+#> [1] "Total generations/reputations: 3"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
