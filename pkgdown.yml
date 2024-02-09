@@ -1,0 +1,12 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  explaining_graph: explaining_graph.html
+  introduction: introduction.html
+  theory: theory.html
+last_built: 2024-02-09T00:53Z
+urls:
+  reference: https://danymukesha.github.io/genetic.algo.optimizeR/reference
+  article: https://danymukesha.github.io/genetic.algo.optimizeR/articles
+
