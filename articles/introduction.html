@@ -119,7 +119,7 @@ that minimizes the function.</p>
 <code class="sourceCode R"><span><span class="co"># Initialize population</span></span>
 <span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/initialize_population.html">initialize_population</a></span><span class="op">(</span>population_size <span class="op">=</span> <span class="fl">3</span>, min <span class="op">=</span> <span class="fl">0</span>, max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span><span class="va">population</span></span>
-<span><span class="co">#&gt; [1] 2 3 0</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 0 3 1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="evaluation">Evaluation<a class="anchor" aria-label="anchor" href="#evaluation"></a>
@@ -129,7 +129,7 @@ that minimizes the function.</p>
 <code class="sourceCode R"><span><span class="co"># Evaluate fitness</span></span>
 <span><span class="va">fitness</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/evaluate_fitness.html">evaluate_fitness</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span>
 <span><span class="va">fitness</span></span>
-<span><span class="co">#&gt; [1] 0 1 4</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 4 1 1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="selection">Selection<a class="anchor" aria-label="anchor" href="#selection"></a>
@@ -141,7 +141,7 @@ because they have higher fitness.</p>
 <code class="sourceCode R"><span><span class="co"># Perform selection</span></span>
 <span><span class="va">selected_parents</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/selection.html">selection</a></span><span class="op">(</span><span class="va">population</span>, <span class="va">fitness</span>, num_parents <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">selected_parents</span></span>
-<span><span class="co">#&gt; [1] 2 3</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 3 1</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="crossover-and-mutation">Crossover and Mutation<a class="anchor" aria-label="anchor" href="#crossover-and-mutation"></a>
@@ -152,12 +152,12 @@ offspring: <span class="math inline">\(x_1' = 1\)</span>, <span class="math inli
 <code class="sourceCode R"><span><span class="co"># Perform crossover</span></span>
 <span><span class="va">offspring</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/crossover.html">crossover</a></span><span class="op">(</span><span class="va">selected_parents</span>, offspring_size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">offspring</span></span>
-<span><span class="co">#&gt; [1] 2 2</span></span>
+<span><span class="co">#&gt; [1] 3 3</span></span>
 <span></span>
 <span><span class="co"># Perform mutation</span></span>
 <span><span class="va">mutated_offspring</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/mutation.html">mutation</a></span><span class="op">(</span><span class="va">offspring</span>, mutation_rate <span class="op">=</span> <span class="fl">0.1</span><span class="op">)</span></span>
 <span><span class="va">mutated_offspring</span></span>
-<span><span class="co">#&gt; [1] 2 2</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 3.2 3.0</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="replacement">Replacement<a class="anchor" aria-label="anchor" href="#replacement"></a>
@@ -169,7 +169,7 @@ population size.</p>
 <code class="sourceCode R"><span><span class="co"># Replace individuals in the population</span></span>
 <span><span class="va">new_population</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/replacement.html">replacement</a></span><span class="op">(</span><span class="va">population</span>, <span class="va">mutated_offspring</span>, num_to_replace <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">new_population</span></span>
-<span><span class="co">#&gt; [1] 2 2 0</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 0.0 3.0 3.2</span></span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Termination</span></span>
 <span><span class="co"># Repeat the above steps(from Evaluation) for multiple generations or until a termination condition is met.</span></span></code></pre></div>
