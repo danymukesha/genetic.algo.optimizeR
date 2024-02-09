@@ -4,12 +4,19 @@
 \name{genetic.algo.optimizeR-package}
 \alias{genetic.algo.optimizeR}
 \alias{genetic.algo.optimizeR-package}
-\title{genetic.algo.optimizeR: What the Package Does (Title Case)}
+\title{genetic.algo.optimizeR: Genetic Algorthim Optimization}
 \description{
 R package for learning purposes that implements a genetic algorithm optimization process.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://danymukesha.github.io/genetic.algo.optimizeR/}
+}
+
+}
 \author{
-\strong{Maintainer}: Dany Mukesha \email{danymukesha@gmail.com} (\href{https://orcid.org/0000-0003-4757-117X}{ORCID})
+\strong{Maintainer}: Dany Mukesha \email{danymukesha@gmail.com} (\href{https://orcid.org/0009-0001-9514-751X}{ORCID})
 
 }
 \keyword{internal}

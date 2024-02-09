@@ -22,3 +22,6 @@ home:
   description: >
     R package for learning purposes that implements a genetic algorithm optimization process.
 URL: https://danymukesha.github.io/genetic.algo.optimizeR/
+Imports: 
+    dplyr,
+    ggplot2
