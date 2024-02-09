@@ -14,6 +14,8 @@ R package for learning purposes that implements a genetic algorithm optimization
 Useful links:
 \itemize{
   \item \url{https://danymukesha.github.io/genetic.algo.optimizeR/}
+  \item \url{https://github.com/danymukesha/genetic.algo.optimizeR}
+  \item Report bugs at \url{https://github.com/danymukesha/genetic.algo.optimizeR/issues}
 }
 
 }

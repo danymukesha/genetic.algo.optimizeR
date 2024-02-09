@@ -72,7 +72,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 1 2
+#> [1] 1 0 2
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -108,15 +108,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 0
+#> [1] 1 4 0
 #> [1] "Selection:"
 #> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 1 2
+#> [1] 1 2 2
 #> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 1 0 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
