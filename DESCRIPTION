@@ -1,10 +1,10 @@
 Package: genetic.algo.optimizeR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Genetic Algorthim Optimization
 Version: 0.1.0
 Authors@R: c(
     person("Dany", "Mukesha", , "danymukesha@gmail.com", role = c("aut", "cre"),
-      comment = c(ORCID = "0000-0003-4757-117X")
+      comment = c(ORCID = "0009-0001-9514-751X")
     )
   )
 Maintainer: The package maintainer <danymukesha@gmail.com>
@@ -21,3 +21,4 @@ home:
   title: Genetic Algorithm Optimization
   description: >
     R package for learning purposes that implements a genetic algorithm optimization process.
+URL: https://danymukesha.github.io/genetic.algo.optimizeR/

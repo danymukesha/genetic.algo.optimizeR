@@ -1,6 +1,5 @@
 ---
 title: "Theory"
-author: "Dany Mukesha"
 output: 
   md_document:
     toc: true

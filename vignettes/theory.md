@@ -104,7 +104,7 @@ The optimal/fitting individuals *F* of a quadratic equation, in this
 case the lowest point on the graph of f(x), is:
 
 $$
-F(\frac{−b}{2a},f(\frac{−b}{2a}))
+F\left(\frac{-b}{2a}, f\left(\frac{-b}{2a}\right)\right)
 $$
 
     find.fitting = function(a, b, c) {
