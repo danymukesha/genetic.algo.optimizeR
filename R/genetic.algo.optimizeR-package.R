@@ -7,5 +7,6 @@
 #' @import rsconnect
 #' @import stats
 #' @import tinytex
+#' @import stringr
 ## usethis namespace: end
 NULL

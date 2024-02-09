@@ -25,6 +25,7 @@ Imports:
     ggplot2,
     rsconnect,
     stats,
+    stringr,
     tinytex
 Config/testthat/edition: 3
 BugReports: https://github.com/danymukesha/genetic.algo.optimizeR/issues
