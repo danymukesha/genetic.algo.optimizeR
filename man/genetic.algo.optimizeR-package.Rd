@@ -6,6 +6,8 @@
 \alias{genetic.algo.optimizeR-package}
 \title{genetic.algo.optimizeR: Genetic Algorthim Optimization}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 R package for learning purposes that implements a genetic algorithm optimization process.
 }
 \seealso{

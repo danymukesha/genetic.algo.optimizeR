@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# genetic.algo.optimizeR
+# {genetic.algo.optimizeR} <a href="https://danymukesha.github.io/genetic.algo.optimizeR/"><img src="man/figures/logo.png" align="right" height="139" alt="genetic.algo.optimizeR website" /></a>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -68,7 +68,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 3 2 1
+#> [1] 3 0 2
 
 generation <- 0  # Initialize generation/reputation counter
 
@@ -104,15 +104,15 @@ while (TRUE) {
   print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 1 0 1
+#> [1] 1 4 0
 #> [1] "Selection:"
 #> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 3 2 2
+#> [1] 2 0 2
 #> [1] "Evaluation:"
-#> [1] 1 0 0
+#> [1] 0 4 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"

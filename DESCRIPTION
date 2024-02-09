@@ -14,7 +14,9 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     knitr,
-    rmarkdown
+    learnr,
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 home:
@@ -25,3 +27,4 @@ URL: https://danymukesha.github.io/genetic.algo.optimizeR/
 Imports: 
     dplyr,
     ggplot2
+Config/testthat/edition: 3
