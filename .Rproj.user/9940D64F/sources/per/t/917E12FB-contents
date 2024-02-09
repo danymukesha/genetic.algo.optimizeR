@@ -1,0 +1,4 @@
+initialize_population <- function(population_size, min = -10, max = 10) {
+  population <- runif(population_size, min = min, max = max)
+  return(population)
+}
