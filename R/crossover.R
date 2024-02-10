@@ -36,18 +36,18 @@
 #'
 #' @export
 crossover <- function(selected_parents, offspring_size) {
-  num_parents <- length(selected_parents)
-  offspring <- numeric(offspring_size)
+    num_parents <- length(selected_parents)
+    offspring <- numeric(offspring_size)
 
-  for (i in seq(1, offspring_size, by = 2)) {
-    parent1_index <- sample(1:num_parents, 1)
-    parent2_index <- sample(1:num_parents, 1)
+    for (i in seq(1, offspring_size, by = 2)) {
+        parent1_index <- sample(1:num_parents, 1)
+        parent2_index <- sample(1:num_parents, 1)
 
-    offspring[i] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
-    offspring[i + 1] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
-  }
-  offspring <- offspring |>
-    round(x = _) # facilitate the adaptation of the offspring
+        offspring[i] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
+        offspring[i + 1] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
+    }
+    offspring <- offspring |>
+        round(x = _) # facilitate the adaptation of the offspring
 
-  return(offspring)
+    return(offspring)
 }
