@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CRAN.R-project.org/package=genetic.algo.optimizeR)
+[![Bioc release status](http://www.bioconductor.org/shields/build/release/bioc/genetic.algo.optimizeR.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/genetic.algo.optimizeR)
 [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/danymukesha/genetic.algo.optimizeR/main)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Codecov test coverage](https://codecov.io/gh/danymukesha/genetic.algo.optimizeR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danymukesha/genetic.algo.optimizeR?branch=main)

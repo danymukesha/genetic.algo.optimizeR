@@ -6,14 +6,28 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/danymukesha/genetic.algo.optimizeR/actions/workflows/R-CMD-check.yaml)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CRAN.R-project.org/package=genetic.algo.optimizeR)
+[![Bioc release
+status](http://www.bioconductor.org/shields/build/release/bioc/genetic.algo.optimizeR.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/genetic.algo.optimizeR)
 [![Launch
 binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/danymukesha/genetic.algo.optimizeR/main)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Codecov test
 coverage](https://codecov.io/gh/danymukesha/genetic.algo.optimizeR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danymukesha/genetic.algo.optimizeR?branch=main)
+[![Bioc release
+status](http://www.bioconductor.org/shields/build/release/bioc/genetic.algo.optimizeR.svg)](https://bioconductor.org/checkResults/release/bioc-LATEST/genetic.algo.optimizeR)
+[![Bioc devel
+status](http://www.bioconductor.org/shields/build/devel/bioc/genetic.algo.optimizeR.svg)](https://bioconductor.org/checkResults/devel/bioc-LATEST/genetic.algo.optimizeR)
+[![Bioc downloads
+rank](https://bioconductor.org/shields/downloads/release/genetic.algo.optimizeR.svg)](http://bioconductor.org/packages/stats/bioc/genetic.algo.optimizeR/)
+[![Bioc
+support](https://bioconductor.org/shields/posts/genetic.algo.optimizeR.svg)](https://support.bioconductor.org/tag/genetic.algo.optimizeR)
+[![Bioc
+history](https://bioconductor.org/shields/years-in-bioc/genetic.algo.optimizeR.svg)](https://bioconductor.org/packages/release/bioc/html/genetic.algo.optimizeR.html#since)
+[![Bioc last
+commit](https://bioconductor.org/shields/lastcommit/devel/bioc/genetic.algo.optimizeR.svg)](http://bioconductor.org/checkResults/devel/bioc-LATEST/genetic.algo.optimizeR/)
+[![Bioc
+dependencies](https://bioconductor.org/shields/dependencies/release/genetic.algo.optimizeR.svg)](https://bioconductor.org/packages/release/bioc/html/genetic.algo.optimizeR.html#since)
 <!-- badges: end -->
 
 The goal of `genetic.algo.optimizeR` is to optimize the function
@@ -79,59 +93,50 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 1 3
+#> [1] 3 2 1
 
 generation <- 0 # Initialize generation/reputation counter
 
 while (TRUE) {
-  generation <- generation + 1 # Increment generation/reputation count
+    generation <- generation + 1 # Increment generation/reputation count
 
-  # Evaluate fitness
-  fitness <- evaluate_fitness(population)
-  print("Evaluation:")
-  print(fitness)
+    # Evaluate fitness
+    fitness <- evaluate_fitness(population)
+    print("Evaluation:")
+    print(fitness)
 
+    # Check if the fitness of every individual is close to zero
+    if (all(abs(fitness) <= 0.01)) {
+        print("Termination Condition Reached: All individuals have fitness close to zero.")
+        break
+    }
 
-  # Check if the fitness of every individual is close to zero
-  if (all(abs(fitness) <= 0.01)) {
-    print("Termination Condition Reached: All individuals have fitness close to zero.")
-    break
-  }
+    # Selection
+    selected_parents <- selection(population, fitness, num_parents = 2)
+    print("Selection:")
+    print(selected_parents)
 
-  # Selection
-  selected_parents <- selection(population, fitness, num_parents = 2)
-  print("Selection:")
-  print(selected_parents)
+    # Crossover and Mutation
+    offspring <- crossover(selected_parents, offspring_size = 2)
+    mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
+    print("Crossover and Mutation:")
+    print(mutated_offspring)
 
-  # Crossover and Mutation
-  offspring <- crossover(selected_parents, offspring_size = 2)
-  mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
-  print("Crossover and Mutation:")
-  print(mutated_offspring)
-
-  # Replacement
-  population <- replacement(population, mutated_offspring, num_to_replace = 1)
-  print("Replacement:")
-  print(population)
+    # Replacement
+    population <- replacement(population, mutated_offspring, num_to_replace = 1)
+    print("Replacement:")
+    print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 1
+#> [1] 1 0 1
 #> [1] "Selection:"
-#> [1] 1 3
+#> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 0 1 2
+#> [1] 3 2 2
 #> [1] "Evaluation:"
-#> [1] 4 1 0
-#> [1] "Selection:"
-#> [1] 2 1
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 2 1 2
-#> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 1 0 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -143,7 +148,7 @@ while (TRUE) {
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 
 print(paste("Total generations/reputations:", generation))
-#> [1] "Total generations/reputations: 4"
+#> [1] "Total generations/reputations: 3"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
@@ -192,7 +197,7 @@ a <- 1
 b <- -4
 c <- 4
 f <- function(x) {
-  a * x^2 + b * x + c
+    a * x^2 + b * x + c
 }
 ```
 
@@ -250,9 +255,9 @@ $$
 
 ``` r
 find.fitting <- function(a, b, c) {
-  x_fitting <- -b / (2 * a)
-  y_fitting <- f(x_fitting)
-  c(x_fitting, y_fitting)
+    x_fitting <- -b / (2 * a)
+    y_fitting <- f(x_fitting)
+    c(x_fitting, y_fitting)
 }
 F <- find.fitting(a, b, c)
 ```
@@ -267,13 +272,13 @@ abline(h = 0)
 abline(v = 0)
 # add the vertex to the plot
 points(
-  x = F[1], y = F[2],
-  pch = 18, cex = 2, col = "red"
+    x = F[1], y = F[2],
+    pch = 18, cex = 2, col = "red"
 ) # pch controls the form of the point and cex controls its size
 # add a label next to the point
 text(
-  x = F[1], y = F[2],
-  labels = "Fitting", pos = 3, col = "red", font = 10
+    x = F[1], y = F[2],
+    labels = "Fitting", pos = 3, col = "red", font = 10
 ) # pos = 3 places the text above the point
 ```
 
@@ -304,14 +309,14 @@ The quantity $b2–4ac$ is called the discriminant:
 ``` r
 # find the x-intercepts of f(x)
 find.roots <- function(a, b, c) {
-  discriminant <- b^2 - 4 * a * c
-  if (discriminant > 0) {
-    c((-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a))
-  } else if (discriminant == 0) {
-    -b / (2 * a)
-  } else {
-    NaN
-  }
+    discriminant <- b^2 - 4 * a * c
+    if (discriminant > 0) {
+        c((-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a))
+    } else if (discriminant == 0) {
+        -b / (2 * a)
+    } else {
+        NaN
+    }
 }
 solutions <- find.roots(a, b, c)
 ```
@@ -326,13 +331,13 @@ abline(h = 0)
 abline(v = 0)
 # add the x-intercepts to the plot
 points(
-  x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
-  pch = 18, cex = 2, col = "red"
+    x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
+    pch = 18, cex = 2, col = "red"
 )
 text(
-  x = solutions, y = rep(0, length(solutions)),
-  labels = rep("Fitting(x-intercept)", length(solutions)),
-  pos = 3, col = "red", font = 10
+    x = solutions, y = rep(0, length(solutions)),
+    labels = rep("Fitting(x-intercept)", length(solutions)),
+    pos = 3, col = "red", font = 10
 )
 ```
 
