@@ -1,7 +1,7 @@
 Type: Package
 Package: genetic.algo.optimizeR
 Title: Genetic Algorithm Optimization
-Version: 0.02.5
+Version: 0.20.5
 Authors@R: 
     person("Dany", "Mukesha", , "danymukesha@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0001-9514-751X"))
