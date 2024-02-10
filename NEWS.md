@@ -1,4 +1,4 @@
-# genetic.algo.optimizeR 0.20.5
+# genetic.algo.optimizeR 0.99.5
 
 * update version format for bioconductor
 
