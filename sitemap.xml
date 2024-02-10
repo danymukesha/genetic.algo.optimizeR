@@ -4,10 +4,19 @@
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/404.html</loc>
   </url>
   <url>
+    <loc>https://danymukesha.github.io/genetic.algo.optimizeR/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://danymukesha.github.io/genetic.algo.optimizeR/CONTRIBUTING.html</loc>
+  </url>
+  <url>
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/LICENSE-text.html</loc>
   </url>
   <url>
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://danymukesha.github.io/genetic.algo.optimizeR/SUPPORT.html</loc>
   </url>
   <url>
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/articles/explaining_graph.html</loc>
@@ -47,6 +56,9 @@
   </url>
   <url>
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/reference/mutation.html</loc>
+  </url>
+  <url>
+    <loc>https://danymukesha.github.io/genetic.algo.optimizeR/reference/pipe.html</loc>
   </url>
   <url>
     <loc>https://danymukesha.github.io/genetic.algo.optimizeR/reference/replacement.html</loc>
