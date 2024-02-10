@@ -1,8 +1,6 @@
 # genetic.algo.optimizeR 0.2.5
 
-submitting to bioconductor
-
-# genetic.algo.optimizeR (development version)
+* submitting to bioconductor
 
 # genetic.algo.optimizeR 0.2.4
 
