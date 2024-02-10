@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/genetic.algo.optimizeR)](https://CRAN.R-project.org/package=genetic.algo.optimizeR)
 [![Launch binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/danymukesha/genetic.algo.optimizeR/main)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Codecov test coverage](https://codecov.io/gh/danymukesha/genetic.algo.optimizeR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danymukesha/genetic.algo.optimizeR?branch=main)
 <!-- badges: end -->
 
 The goal of `genetic.algo.optimizeR` is to optimize the function $f(x) = x^2 - 4x + 4$ using a genetic algorithm. The function represents a simple quadratic equation, and the goal is to find the value of $x$ that minimizes the function.
@@ -58,7 +59,7 @@ Here's a breakdown of the aim and the results:
 
 After multiple generations of repeating these steps, the genetic algorithm aims to converge towards an optimal or near-optimal solution. In this example, since it's simple and the solution space is small, we could expect the algorithm to converge relatively quickly towards the optimal solution $x = 2$, where $f(x) = 0$.
 
-[***Explaining Graph***](vignettes/explaining_graph.md) 
+[***Explaining Graph***](https://danymukesha.github.io/genetic.algo.optimizeR/articles/explaining_graph.html) 
 ![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
 
 ## Usage
@@ -71,34 +72,34 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 print(population)
 
-generation <- 0  # Initialize generation/reputation counter
+generation <- 0 # Initialize generation/reputation counter
 
 while (TRUE) {
-  generation <- generation + 1  # Increment generation/reputation count
-  
+  generation <- generation + 1 # Increment generation/reputation count
+
   # Evaluate fitness
   fitness <- evaluate_fitness(population)
   print("Evaluation:")
   print(fitness)
-  
-  
+
+
   # Check if the fitness of every individual is close to zero
   if (all(abs(fitness) <= 0.01)) {
     print("Termination Condition Reached: All individuals have fitness close to zero.")
     break
   }
-  
+
   # Selection
   selected_parents <- selection(population, fitness, num_parents = 2)
   print("Selection:")
   print(selected_parents)
-  
+
   # Crossover and Mutation
   offspring <- crossover(selected_parents, offspring_size = 2)
-  mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
+  mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
   print("Crossover and Mutation:")
   print(mutated_offspring)
-  
+
   # Replacement
   population <- replacement(population, mutated_offspring, num_to_replace = 1)
   print("Replacement:")
@@ -119,8 +120,8 @@ The above example illustrates the process of a genetic algorithm, where individu
     -   The space of x value is kept integer type and on range from 0 to 3,for simplification.
 
     ```{r}
-    population <- c(1, 3, 0)
-    population
+population <- c(1, 3, 0)
+population
     ```
 
 2.  Evaluate Fitness:
@@ -131,21 +132,23 @@ The above example illustrates the process of a genetic algorithm, where individu
         -   X2: f(3) = 3\^2 - 4\*3 + 4 = 1
         -   X3: f(0) = 0\^2 - 4\*0 + 4 = 4
 
-        Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
+Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
 
 So for:
 
 $$
-f(x) = x^2 - 4x + 4
-$$\
+f \left(x\right) = x^2 - 4x + 4
+$$
+
+
 In R, we write:
 
 ```{r}
-a = 1
-b = -4
-c = 4
-f = function(x) {
-  a*x^2 + b*x + c
+a <- 1
+b <- -4
+c <- 4
+f <- function(x) {
+  a * x^2 + b * x + c
 }
 ```
 
@@ -155,17 +158,16 @@ Let’s try 0 ≤ x ≤ 3:
 
 ```{r initial_poputation, out.width="70%", fig.cap=""}
 # domain over which we want to plot f(x)
-x = seq(from=0, to=4, length.out=100)
+x <- seq(from = 0, to = 4, length.out = 100)
 # plot f(x)
-plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+plot(x, f(x), type = "l") # type = 'l' plots a line instead of points
 # plot the x and y axes
-abline(v = 0,h = 0,  col = "skyblue", lty = 3)
-points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 1.5, lty = 3)
+abline(v = 0, h = 0, col = "skyblue", lty = 3)
+points(c(1, 3), c(f(1), f(3)), col = "coral1", pch = 8, cex = 1.5, lty = 3)
 text(c(1, 3), c(f(1), f(3)), labels = c("(x=1, f(x=1))", "(x=3, f(x=3))"), pos = 3)
 
-points(c(0), c(f(0)), col = "blue",pch = 8, cex = 1.5, lty = 3)
+points(c(0), c(f(0)), col = "blue", pch = 8, cex = 1.5, lty = 3)
 text(c(0), c(f(0)), labels = "(x=0, f(x=0))", pos = 4, font = 2)
-
 ```
 
 3.  Selection:
@@ -175,10 +177,10 @@ text(c(0), c(f(0)), labels = "(x=0, f(x=0))", pos = 4, font = 2)
 
 ```{r selection, out.width="70%", fig.cap=""}
 # plot f(x)
-plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+plot(x, f(x), type = "l") # type = 'l' plots a line instead of points
 # plot the x and y axes
-points(c(1,3), c(f(1),f(3)), col = "coral1",pch = 8, cex = 2, lty = 3)
-  text(c(1, 3), c(f(1), f(3)), labels = c("(x=1, f(x=1))", "(x=3, f(x=3))"), pos = 3, font = 2)
+points(c(1, 3), c(f(1), f(3)), col = "coral1", pch = 8, cex = 2, lty = 3)
+text(c(1, 3), c(f(1), f(3)), labels = c("(x=1, f(x=1))", "(x=3, f(x=3))"), pos = 3, font = 2)
 ```
 
 4.  Crossover and Mutation:
@@ -196,28 +198,32 @@ F\left(\frac{-b}{2a}, f\left(\frac{-b}{2a}\right)\right)
 $$
 
 ```{r fitting, out.width="70%", fig.cap=""}
-find.fitting = function(a, b, c) {
-  x_fitting = -b/(2 * a)
-  y_fitting = f(x_fitting)
+find.fitting <- function(a, b, c) {
+  x_fitting <- -b / (2 * a)
+  y_fitting <- f(x_fitting)
   c(x_fitting, y_fitting)
 }
-F = find.fitting(a, b, c)
+F <- find.fitting(a, b, c)
 ```
 
 Adding the Fitting to the plot:
 
 ```{r fitting_plot, out.width="70%", fig.cap=""}
 # plot f(x)
-plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+plot(x, f(x), type = "l") # type = 'l' plots a line instead of points
 # plot the x and y axes
 abline(h = 0)
 abline(v = 0)
 # add the vertex to the plot
-points(x = F[1], y = F[2],
-       pch = 18, cex = 2, col = 'red') # pch controls the form of the point and cex controls its size
+points(
+  x = F[1], y = F[2],
+  pch = 18, cex = 2, col = "red"
+) # pch controls the form of the point and cex controls its size
 # add a label next to the point
-text(x = F[1], y = F[2],
-     labels = "Fitting", pos = 3, col = 'red', font = 10) # pos = 3 places the text above the point
+text(
+  x = F[1], y = F[2],
+  labels = "Fitting", pos = 3, col = "red", font = 10
+) # pos = 3 places the text above the point
 ```
 
 ***Existing alternative solution***
@@ -241,33 +247,35 @@ The quantity $b2–4ac$ is called the discriminant:
 
 ```{r function_intercepts}
 # find the x-intercepts of f(x)
-find.roots = function(a, b, c) {
-  discriminant = b^2 - 4 * a * c
+find.roots <- function(a, b, c) {
+  discriminant <- b^2 - 4 * a * c
   if (discriminant > 0) {
-    c((-b - sqrt(discriminant))/(2 * a), (-b + sqrt(discriminant))/(2 * a))
-  }
-  else if (discriminant == 0) {
+    c((-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a))
+  } else if (discriminant == 0) {
     -b / (2 * a)
-  }
-  else {
+  } else {
     NaN
   }
 }
-solutions = find.roots(a, b, c)
+solutions <- find.roots(a, b, c)
 ```
 
 Adding the x-intercepts to the plot:
 
 ```{r plot_intercepts, out.width="70%", fig.cap=""}
 # plot f(x)
-plot(x, f(x), type = 'l') # type = 'l' plots a line instead of points
+plot(x, f(x), type = "l") # type = 'l' plots a line instead of points
 # plot the x and y axes
 abline(h = 0)
 abline(v = 0)
 # add the x-intercepts to the plot
-points(x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
-       pch = 18, cex = 2, col = 'red')
-text(x = solutions, y = rep(0, length(solutions)),
-     labels = rep("Fitting(x-intercept)", length(solutions)),
-      pos = 3, col = 'red', font = 10)
+points(
+  x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
+  pch = 18, cex = 2, col = "red"
+)
+text(
+  x = solutions, y = rep(0, length(solutions)),
+  labels = rep("Fitting(x-intercept)", length(solutions)),
+  pos = 3, col = "red", font = 10
+)
 ```

@@ -26,7 +26,7 @@
 #' print("Evaluation:")
 #' print(fitness)
 #'
-#' #Selection
+#' # Selection
 #' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)

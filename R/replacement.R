@@ -24,14 +24,14 @@
 #' print("Evaluation:")
 #' print(fitness)
 #'
-#' #Selection
+#' # Selection
 #' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)
 #'
 #' # Crossover and mutation
 #' offspring <- genetic.algo.optimizeR::crossover(selected_parents, offspring_size = 2)
-#' mutated_offspring <- mutation(offspring, mutation_rate = 0) #(no mutation in this example)
+#' mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
 #' print(mutated_offspring)
 #'
 #' # Replacement

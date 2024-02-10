@@ -26,14 +26,14 @@ initialize_population <- function(population_size, min = -100, max = 100) {
     runif(10 * population_size, min = min, max = max) |>
     round(x = _, digits = 0)
 
-  if(abs(min - max) < population_size) {
-     population <- large_population |>
+  if (abs(min - max) < population_size) {
+    population <- large_population |>
       unique() |>
       sample(size = population_size, replace = TRUE)
   } else {
-  population <- large_population |>
-    unique() |>
-    sample(size = population_size)
+    population <- large_population |>
+      unique() |>
+      sample(size = population_size)
   }
 
   return(population)

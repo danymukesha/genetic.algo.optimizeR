@@ -11,3 +11,6 @@
 ^cran-comments\.md$
 ^doc$
 ^Meta$
+^codecov\.yml$
+^Makefile$
+^Jenkinsfile$

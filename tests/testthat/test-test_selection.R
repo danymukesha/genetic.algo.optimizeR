@@ -4,4 +4,3 @@ test_that("selection selects correct number of individuals", {
   selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
   expect_equal(length(selected_parents), 2)
 })
-

@@ -31,7 +31,7 @@ fitness <- evaluate_fitness(population)
 print("Evaluation:")
 print(fitness)
 
-#Selection
+# Selection
 selected_parents <- selection(population, fitness, num_parents = 2)
 print("Selection:")
 print(selected_parents)

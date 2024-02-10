@@ -21,7 +21,7 @@
 #' print("Evaluation:")
 #' print(fitness)
 #'
-#' #Selection
+#' # Selection
 #' selected_parents <- selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)
@@ -44,7 +44,7 @@ crossover <- function(selected_parents, offspring_size) {
     parent2_index <- sample(1:num_parents, 1)
 
     offspring[i] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
-    offspring[i+1] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
+    offspring[i + 1] <- (selected_parents[parent1_index] + selected_parents[parent2_index]) / 2
   }
   offspring <- offspring |>
     round(x = _) # facilitate the adaptation of the offspring

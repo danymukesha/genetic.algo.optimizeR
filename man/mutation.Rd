@@ -36,7 +36,7 @@ fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 print("Evaluation:")
 print(fitness)
 
-#Selection
+# Selection
 selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 print("Selection:")
 print(selected_parents)
@@ -46,9 +46,9 @@ offspring <- genetic.algo.optimizeR::crossover(selected_parents, offspring_size 
 print("Crossover:")
 print(offspring)
 
-#Mutation
+# Mutation
 mutated_offspring <- genetic.algo.optimizeR::mutation(offspring, mutation_rate = 0)
-#(no mutation in this example)
+# (no mutation in this example)
 print(mutated_offspring)
 }
 }
