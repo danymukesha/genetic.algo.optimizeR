@@ -8,7 +8,7 @@
 #'
 #' @param population The list of individuals of the population
 #' @param fitness The list of individuals(value) obtained from the function
-#' of \code{\link[genetic.algo.optimizeR]{genetic.algo.optimizeR}} namely `evalute_fitness`.
+#' of \code{\link[genetic.algo.optimizeR]{genetic.algo.optimizeR}} namely `evaluate_fitness`.
 #' @param num_parents The number of selected individuals that fit the best with the predefined aim.
 #'
 #' @returns The output expected should be a list of selected individuals
