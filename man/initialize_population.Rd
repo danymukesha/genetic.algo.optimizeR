@@ -26,6 +26,7 @@ The space of x value is kept integer type and on range from 0 to 3, for simplifi
 }
 \examples{
 # example of usage
+genetic.algo.optimizeR::initialize_population(population_size = 3, min = 0, max=3)
 \dontrun{
 genetic.algo.optimizeR::initialize_population(population_size = 3, min = 0, max = 3)
 }

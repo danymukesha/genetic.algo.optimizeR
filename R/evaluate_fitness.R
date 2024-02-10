@@ -11,6 +11,9 @@
 #'
 #' @examples
 #' # example of usage
+#' population <- c(1, 3, 0)
+#' # Evaluate fitness
+#' genetic.algo.optimizeR::evaluate_fitness(population)
 #' \dontrun{
 #' population <- c(1, 3, 0)
 #' # Evaluate fitness

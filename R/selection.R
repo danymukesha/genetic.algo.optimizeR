@@ -16,7 +16,11 @@
 #'
 #' @examples
 #' # example of usage
-#' \dontrun{
+#' population <- c(1, 3, 0)
+#' fitness <- c(1, 1, 4)
+#' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
+#'
+#' \donttest{
 #' library(genetic.algo.optimizeR)
 #'
 #' population <- c(1, 3, 0)

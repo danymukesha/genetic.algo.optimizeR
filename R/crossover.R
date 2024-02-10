@@ -13,6 +13,8 @@
 #'
 #' @examples
 #' # example of usage
+#' selected_parents <- c(1,3)
+#' offspring <- genetic.algo.optimizeR::crossover(selected_parents, offspring_size = 2)
 #' \dontrun{
 #' population <- c(1, 3, 0)
 #'

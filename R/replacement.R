@@ -16,6 +16,9 @@
 #'
 #' @examples
 #' # example of usage
+#' mutated_offspring <- c(2,3)
+#' population <- c(1,3,0)
+#' genetic.algo.optimizeR::replacement(population, mutated_offspring, num_to_replace = 1)
 #' \dontrun{
 #' population <- c(1, 3, 0)
 #'

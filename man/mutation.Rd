@@ -27,6 +27,8 @@ and help the next generation close to the fitness.
 }
 \examples{
 # example of usage
+offspring <- c(1, 3, 0)
+mutated_offspring <- genetic.algo.optimizeR::mutation(offspring, mutation_rate = 0)
 \dontrun{
 library(genetic.algo.optimize)
 population <- c(1, 3, 0)

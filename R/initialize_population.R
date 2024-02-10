@@ -14,6 +14,7 @@
 #'
 #' @examples
 #' # example of usage
+#' genetic.algo.optimizeR::initialize_population(population_size = 3, min = 0, max=3)
 #' \dontrun{
 #' genetic.algo.optimizeR::initialize_population(population_size = 3, min = 0, max = 3)
 #' }
