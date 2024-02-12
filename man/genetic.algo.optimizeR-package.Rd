@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-R package for learning purposes that implements a genetic algorithm optimization process.
+Genetic algorithm are a class of optimization algorithms inspired by the process of natural selection and genetics. This package is for learning purposes and allows users to optimize various functions or parameters by mimicking biological evolution processes such as selection, crossover, and mutation. Ideal for tasks like machine learning parameter tuning, mathematical function optimization, and solving combinatorial problems.
 }
 \seealso{
 Useful links:

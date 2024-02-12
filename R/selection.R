@@ -1,8 +1,3 @@
-#' Selecting the fitting the population
-#'
-#' The function described below selects the individuals that fit the best
-#' based on the predefined condition(aim/objective). \cr
-#' e.g.: To optimize the function \eqn{f(x) = x^2 - 4x + 4}
 #' to find the value of \eqn{x} that minimizes the function.
 #' \eqn{x}: represents a possible value the an individual from the population can have.
 #'
@@ -16,9 +11,6 @@
 #'
 #' @examples
 #' # example of usage
-#' \dontrun{
-#' library(genetic.algo.optimizeR)
-#'
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
@@ -30,7 +22,6 @@
 #' selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 #' print("Selection:")
 #' print(selected_parents)
-#' }
 #'
 #' @author Dany Mukesha
 #'

@@ -23,7 +23,6 @@ to find the value of \eqn{x} that minimizes the function.
 }
 \examples{
 # example of usage
-\dontrun{
 population <- c(1, 3, 0)
 
 # Evaluate fitness
@@ -40,7 +39,6 @@ print(selected_parents)
 offspring <- crossover(selected_parents, offspring_size = 2)
 print("Crossover:")
 print(offspring)
-}
 
 }
 \author{

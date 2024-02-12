@@ -20,11 +20,9 @@ to then provide an overview of how that population fits the equation.
 }
 \examples{
 # example of usage
-\dontrun{
 population <- c(1, 3, 0)
 # Evaluate fitness
 genetic.algo.optimizeR::evaluate_fitness(population)
-}
 
 }
 \author{

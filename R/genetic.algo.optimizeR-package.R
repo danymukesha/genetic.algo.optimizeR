@@ -8,5 +8,6 @@
 #' @import stats
 #' @import tinytex
 #' @import stringr
+#' @import biocViews
 ## usethis namespace: end
 NULL

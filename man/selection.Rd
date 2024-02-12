@@ -2,7 +2,8 @@
 % Please edit documentation in R/selection.R
 \name{selection}
 \alias{selection}
-\title{Selecting the fitting the population}
+\title{to find the value of \eqn{x} that minimizes the function.
+\eqn{x}: represents a possible value the an individual from the population can have.}
 \usage{
 selection(population, fitness, num_parents)
 }
@@ -19,17 +20,11 @@ The output expected should be a list of selected individuals
 that fit the best with the predefined condition(aim/objective).
 }
 \description{
-The function described below selects the individuals that fit the best
-based on the predefined condition(aim/objective). \cr
-e.g.: To optimize the function \eqn{f(x) = x^2 - 4x + 4}
 to find the value of \eqn{x} that minimizes the function.
 \eqn{x}: represents a possible value the an individual from the population can have.
 }
 \examples{
 # example of usage
-\dontrun{
-library(genetic.algo.optimizeR)
-
 population <- c(1, 3, 0)
 
 # Evaluate fitness
@@ -41,7 +36,6 @@ print(fitness)
 selected_parents <- genetic.algo.optimizeR::selection(population, fitness, num_parents = 2)
 print("Selection:")
 print(selected_parents)
-}
 
 }
 \author{

@@ -13,7 +13,6 @@
 #'
 #' @examples
 #' # example of usage
-#' \dontrun{
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
@@ -30,7 +29,6 @@
 #' offspring <- crossover(selected_parents, offspring_size = 2)
 #' print("Crossover:")
 #' print(offspring)
-#' }
 #'
 #' @author Dany Mukesha
 #'

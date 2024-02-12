@@ -27,8 +27,6 @@ and help the next generation close to the fitness.
 }
 \examples{
 # example of usage
-\dontrun{
-library(genetic.algo.optimize)
 population <- c(1, 3, 0)
 
 # Evaluate fitness
@@ -50,7 +48,7 @@ print(offspring)
 mutated_offspring <- genetic.algo.optimizeR::mutation(offspring, mutation_rate = 0)
 # (no mutation in this example)
 print(mutated_offspring)
-}
+
 }
 \author{
 Dany Mukesha

@@ -16,8 +16,6 @@
 #'
 #' @examples
 #' # example of usage
-#' \dontrun{
-#' library(genetic.algo.optimize)
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
@@ -39,7 +37,7 @@
 #' mutated_offspring <- genetic.algo.optimizeR::mutation(offspring, mutation_rate = 0)
 #' # (no mutation in this example)
 #' print(mutated_offspring)
-#' }
+#'
 #' @author Dany Mukesha
 #'
 #' @export
