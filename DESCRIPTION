@@ -26,6 +26,7 @@ Imports:
     tinytex, 
     biocViews
 Suggests: 
+    BiocStyle,
     knitr,
     learnr,
     rmarkdown,
@@ -38,3 +39,4 @@ Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.3.1
 Language: en-US
+biocViews: ExperimentalDesign, Technology

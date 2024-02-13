@@ -9,5 +9,6 @@
 #' @import tinytex
 #' @import stringr
 #' @import biocViews
+#' @import magrittr
 ## usethis namespace: end
 NULL

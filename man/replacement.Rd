@@ -27,7 +27,6 @@ to find the value of \eqn{x} that minimizes the function.
 }
 \examples{
 # example of usage
-\dontrun{
 population <- c(1, 3, 0)
 
 # Evaluate fitness
@@ -49,7 +48,6 @@ print(mutated_offspring)
 population <- genetic.algo.optimizeR::replacement(population, mutated_offspring, num_to_replace = 1)
 print("Replacement:")
 print(population)
-}
 
 }
 \author{

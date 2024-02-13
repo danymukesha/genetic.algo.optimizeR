@@ -22,7 +22,6 @@ to find the value of \eqn{x} that minimizes the function.
 \eqn{x}: represents a possible value the an individual from the population can have.
 }
 \examples{
-# example of usage
 population <- c(1, 3, 0)
 
 # Evaluate fitness

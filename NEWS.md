@@ -1,4 +1,8 @@
-# genetic.algo.optimizeR (development version)
+# genetic.algo.optimizeR 0.2.6
+
+* fix and submission to CRAN
+
+# genetic.algo.optimizeR 0.2.5
 
 # genetic.algo.optimizeR 0.2.4
 

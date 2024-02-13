@@ -29,7 +29,7 @@ and help the next generation close to the fitness.
 # example of usage
 population <- c(1, 3, 0)
 
-# Evaluate fitness
+# Evaluate fitness.
 fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 print("Evaluation:")
 print(fitness)

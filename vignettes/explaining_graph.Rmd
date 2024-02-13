@@ -1,8 +1,9 @@
 ---
 title: "Explaining Graph"
 output: rmarkdown::html_vignette
+toc: true
 vignette: >
-  %\VignetteIndexEntry{explaining_graph}
+  %\VignetteIndexEntry{Explaining Graph}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -10,10 +11,10 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "figures/theory-",
-  out.width = "100%"
+    collapse = TRUE,
+    comment = "#>",
+    fig.path = "figures/theory-",
+    out.width = "100%"
 )
 ```
 

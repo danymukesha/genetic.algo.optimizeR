@@ -16,7 +16,6 @@
 #'
 #' @examples
 #' # example of usage
-#' \dontrun{
 #' population <- c(1, 3, 0)
 #'
 #' # Evaluate fitness
@@ -38,15 +37,14 @@
 #' population <- genetic.algo.optimizeR::replacement(population, mutated_offspring, num_to_replace = 1)
 #' print("Replacement:")
 #' print(population)
-#' }
 #'
 #' @author Dany Mukesha
 #'
 #' @export
 replacement <- function(population, offspring, num_to_replace) {
-  num_population <- length(population)
-  unsurvivor <- setdiff(population, offspring)
-  replace_indices <- sample(length(unsurvivor), num_to_replace, replace = FALSE)
-  population[population %in% unsurvivor[replace_indices]] <- offspring[1:num_to_replace]
-  return(population)
+    num_population <- length(population)
+    unsurvivor <- setdiff(population, offspring)
+    replace_indices <- sample(length(unsurvivor), num_to_replace, replace = FALSE)
+    population[population %in% unsurvivor[replace_indices]] <- offspring[seq_len(num_to_replace)]
+    return(population)
 }

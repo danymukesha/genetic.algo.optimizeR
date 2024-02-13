@@ -18,7 +18,7 @@
 #' # example of usage
 #' population <- c(1, 3, 0)
 #'
-#' # Evaluate fitness
+#' # Evaluate fitness.
 #' fitness <- genetic.algo.optimizeR::evaluate_fitness(population)
 #' print("Evaluation:")
 #' print(fitness)
@@ -42,14 +42,14 @@
 #'
 #' @export
 mutation <- function(offspring, mutation_rate) {
-  num_offspring <- length(offspring)
+    num_offspring <- length(offspring)
 
-  for (i in seq(num_offspring)) {
-    if (runif(1) < mutation_rate) {
-      offspring[i] <- offspring[i] + rnorm(1, mean = 0, sd = 0.1) |> # Add small random value
-        round(x = _, digits = 1)
+    for (i in seq(num_offspring)) {
+        if (runif(1) < mutation_rate) {
+            offspring[i] <- offspring[i] + rnorm(1, mean = 0, sd = 0.1) |> # Add small random value
+                round(x = _, digits = 1)
+        }
     }
-  }
 
-  return(offspring)
+    return(offspring)
 }
