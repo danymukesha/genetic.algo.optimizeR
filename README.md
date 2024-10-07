@@ -78,10 +78,15 @@ In this example, since it’s simple and the solution space is small, we
 could expect the algorithm to converge relatively quickly towards the
 optimal solution $x = 2$, where $f(x) = 0$.
 
-[***Explaining
-Graph***](https://danymukesha.github.io/genetic.algo.optimizeR/articles/explaining_graph.html)
-![Web capture_8-2-2024_233215_mermaid
-live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
+[***wikipedia***](https://en.wikipedia.org/wiki/Genetic_algorithm)
+
+<figure>
+<img
+src="https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f"
+alt="Web capture_8-2-2024_233215_mermaid live" />
+<figcaption aria-hidden="true">Web capture_8-2-2024_233215_mermaid
+live</figcaption>
+</figure>
 
 ## Usage
 
@@ -93,7 +98,7 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 2 0 1
+#> [1] 3 2 1
 
 generation <- 0 # Initialize generation/reputation counter
 
@@ -128,17 +133,17 @@ while (TRUE) {
     print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 0 4 1
+#> [1] 1 0 1
 #> [1] "Selection:"
-#> [1] 2 1
+#> [1] 2 3
 #> [1] "Crossover and Mutation:"
-#> [1] 2 2
+#> [1] 3 3
 #> [1] "Replacement:"
-#> [1] 2 0 2
+#> [1] 3 2 3
 #> [1] "Evaluation:"
-#> [1] 0 4 0
+#> [1] 1 0 1
 #> [1] "Selection:"
-#> [1] 2 2
+#> [1] 2 3
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
@@ -386,9 +391,9 @@ versions of selection, crossover, and mutation operations can
 significantly reduce computation time for large-scale optimization
 problems.
 
-## Wrap-Up
+## Wrap-up
 
-Currrently only the fundamental concepts and implementation of genetic
+Currently only the fundamental concepts and implementation of genetic
 algorithms are used in the `genetic.algo.optimizeR` package. By
 following these steps and understanding the underlying principles, users
 can apply this powerful optimization technique to a wide range of

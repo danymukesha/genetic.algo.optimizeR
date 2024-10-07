@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: references.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -21,9 +22,9 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-Genetic algorithms (GAs) are metaheuristic optimization techniques inspired by the principles of natural selection and evolution. They operate on a population of potential solutions, applying genetic operators such as selection, crossover, and mutation to evolve better solutions over successive generations.
+Genetic algorithms (GAs) are metaheuristic optimization techniques inspired by the principles of natural selection and evolution. They operate on a population of potential solutions, applying genetic operators such as selection, crossover, and mutation to evolve better solutions over successive generations[@whitley1994].
 
-GAs are particularly useful for optimizing complex, non-linear functions with multiple local optima, where traditional gradient-based methods may fail.
+GAs are particularly useful for optimizing complex, non-linear functions with multiple local optima, where traditional gradient-based methods may fail[@holland1992; @goldberg1988].
 
 We come out with a simple example to explore how these components work together in our quadratic function optimization problem using `genetic.algo.optimizeR` package.
 
@@ -62,7 +63,55 @@ Here's a breakdown of the aim and the results:
 
 After multiple generations of repeating these steps, the genetic algorithm aims to converge towards an optimal or near-optimal solution. In this example, since it's simple and the solution space is small, we could expect the algorithm to converge relatively quickly towards the optimal solution $x = 2$, where $f(x) = 0$.
 
-[***Explaining Graph***](https://danymukesha.github.io/genetic.algo.optimizeR/articles/explaining_graph.html) ![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
+[***wikipedia***](https://en.wikipedia.org/wiki/Genetic_algorithm)
+
+```{r diagram_GAs, eval=FALSE, include=FALSE}
+library(DiagrammeR)
+
+grViz("
+  digraph genetic_algorithm {
+    rankdir=LR;
+    
+    A [label = 'Initialize Population'];
+    B [label = 'Evaluate Fitness'];
+    C [label = 'Selection'];
+    D [label = 'Termination Condition?'];
+    E [label = 'End'];
+    F [label = 'Crossover and Mutation'];
+    G [label = 'Replace Population'];
+    
+    X1 [label = 'Individual 1: x = 1', shape = ellipse];
+    X2 [label = 'Individual 2: x = 3', shape = ellipse];
+    X3 [label = 'Individual 3: x = 0', shape = ellipse];
+    
+    Y1 [label = 'Selected Parents: x = 1, x = 3', shape = ellipse];
+    
+    Z1 [label = 'Offspring 1: x = 1', shape = ellipse];
+    Z2 [label = 'Offspring 2: x = 3', shape = ellipse];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E [label = 'Yes'];
+    D -> F [label = 'No'];
+    F -> G;
+    G -> B;
+    
+    # Examples
+    B -> X1 [label = 'Example:'];
+    B -> X2;
+    B -> X3;
+    
+    C -> Y1 [label = 'Example:'];
+    
+    F -> Z1 [label = 'Example:'];
+    F -> Z2;
+  }
+")
+
+```
+
+![](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
 
 ## Usage
 
@@ -121,7 +170,7 @@ The above example illustrates the process of a genetic algorithm, where individu
         (Note: the values are random and the population should be highly diversified)
     -   The space of x value is kept integer type and on range from 0 to 3,for simplification.
 
-    ```{r}
+    ```{r population}
     population <- c(1, 3, 0)
     population
     ```
@@ -144,7 +193,7 @@ $$
 
 In R, we write:
 
-```{r}
+```{r f_function}
 a <- 1
 b <- -4
 c <- 4
@@ -295,7 +344,7 @@ By understanding these fundamental concepts and their implementation, we can tak
 
 ### Multi-objective optimization
 
-While our example focuses on single-objective optimization, genetic algorithms are particularly powerful for multi-objective problems. In such cases, the concept of Pareto optimality is used to evaluate solutions, and techniques like NSGA-II (Non-dominated Sorting Genetic Algorithm II) can be employed.
+While our example focuses on single-objective optimization, genetic algorithms are particularly powerful for multi-objective problems. In such cases, the concept of Pareto optimality is used to evaluate solutions, and techniques like NSGA-II (Non-dominated Sorting Genetic Algorithm II) can be employed[@deb2002].
 
 ### Adaptive parameter control
 
@@ -319,7 +368,3 @@ I would encourage the users to experiment with different parameter settings and 
 
 ## References
 
-1.  Goldberg, D. E. (1989). Genetic Algorithms in Search, Optimization and Machine Learning. Addison-Wesley.
-2.  Holland, J. H. (1992). Adaptation in Natural and Artificial Systems. MIT Press.
-3.  Whitley, D. (1994). A genetic algorithm tutorial. Statistics and Computing, 4(2), 65-85
-4.  Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. A. M. T. (2002). A fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE Transactions on Evolutionary Computation, 6(2), 182-197.

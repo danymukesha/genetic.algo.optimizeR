@@ -24,7 +24,7 @@ The application of genetic algorithms (GAs) offers a powerful approach to optimi
 
 Genetic algorithms are inspired by the principles of natural selection and genetics. They are widely utilized in optimization problems where traditional methods may falter due to the complexity of the search space. We will illustrate the step-by-step implementation of a genetic algorithm to minimize the quadratic function \( f(x) = x^2 - 4x + 4 \). The objective is to identify the value of \( x \) that yields the minimum value of the function, thereby providing insights into the capabilities and workings of GAs.
 
-## Theory
+## Demonstration
 
 ### Initialization of population
 
