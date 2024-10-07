@@ -1,50 +1,37 @@
 ---
-title: "Theory"
-output: rmarkdown::html_vignette
-toc: true
-vignette: >
-  %\VignetteIndexEntry{Theory}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+title: "Theory background"
+output: learnr::tutorial
+runtime: shiny_prerendered
 ---
 
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>",
-    fig.path = "figures/theory-",
-    out.width = "100%"
-)
-```
-
-
-
-***Theory***
-
-```{r setup, results='hide', warning = FALSE, message = FALSE, include = FALSE}
+```{r setup, include=FALSE}
+library(learnr)
 library(ggplot2)
 library(dplyr)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-1.  Initialize Population:
-    -   Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).\
-    (Note: the values are random and the population should be highly diversified)
-    -   The space of x value is kept integer type and on range from 0 to 3,for simplification.
+## 1.  Initialize Population:
+
+  -   Start with a population of individuals: X1(x=1), X2(x=3), X3(x=0).\
+  (Note: the values are random and the population should be highly diversified)
+  -   The space of x value is kept integer type and on range from 0 to 3,for simplification.
+    
 ```{r}
 population <- c(1, 3, 0)
 ```
     
-2.  Evaluate Fitness:
-    -   Calculate fitness(`f(x)`) for each individual:
+## 2.  Evaluate Fitness:
 
-        -   X1: f(1) = 1\^2 - 4\*1 + 4 = 1
-        -   X2: f(3) = 3\^2 - 4\*3 + 4 = 1
-        -   X3: f(0) = 0\^2 - 4\*0 + 4 = 4
+  -   Calculate fitness(`f(x)`) for each individual:
 
-        Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
+      -   X1: f(1) = 1\^2 - 4\*1 + 4 = 1
+      -   X2: f(3) = 3\^2 - 4\*3 + 4 = 1
+      -   X3: f(0) = 0\^2 - 4\*0 + 4 = 4
 
-        So for$f(x) = x^2 - 4x + 4$
+      Coding the function f(x) in R A quadratic function is a function of the form: ax2+bx+c where a≠0
+
+      So for$f(x) = x^2 - 4x + 4$
 
 In R, we write:
 
@@ -98,10 +85,11 @@ ggplot2::ggplot(df, aes(x = x, y = y)) +
     theme_minimal()
 ```
 
-3.  Selection:
-    -   Select parents for crossover:
+## 3.  Selection:
 
-        -   Y1(x=1), Y2(x=3)
+  -   Select parents for crossover:
+
+      -   Y1(x=1), Y2(x=3)
 
 ```{r selection, out.width="70%", fig.cap=""}
 # Plot f(x) using ggplot
@@ -113,13 +101,17 @@ ggplot(df, aes(x = x, y = y)) +
     theme_minimal() # Use a minimal theme
 ```
 
-4.  Crossover and Mutation:
-    -   Generate offspring through crossover and mutation:
-        -   Z1(x=1), Z2(x=3) (no mutation in this example)
-5.  Replacement:
-    -   Replace individuals in the population:
-        -   Replace X3 with Z1, maintaining the population size.
-6.  Repeat Steps 2-5 for multiple generations until a termination condition is met.
+## 4.  Crossover and Mutation:
+   
+  -   Generate offspring through crossover and mutation:
+      -   Z1(x=1), Z2(x=3) (no mutation in this example)
+      
+## 5.  Replacement:
+
+  -   Replace individuals in the population:
+      -   Replace X3 with Z1, maintaining the population size.
+      
+## 6.  Repeat Steps 2-5 for multiple generations until a termination condition is met.
 
 The optimal/fitting individuals *F* of a quadratic equation, in this case the lowest point on the graph of f(x), is: 
 

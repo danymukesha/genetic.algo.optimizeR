@@ -1,9 +1,9 @@
 ---
-title: "Explaining Graph"
+title: "Representation of GAs"
 output: rmarkdown::html_vignette
 toc: true
 vignette: >
-  %\VignetteIndexEntry{Explaining Graph}
+  %\VignetteIndexEntry{Representation of GAs}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,22 +18,49 @@ knitr::opts_chunk$set(
 )
 ```
 
-***Explaining Graph***
+```{r echo=FALSE}
+library(DiagrammeR)
 
-``` mermaid
-graph TD;
-    A[Initialize Population] --> B(Evaluate Fitness);
-    B --> C[Selection];
-    C --> D{Termination Condition?};
-    D -->|Yes| E[End];
-    D -->|No| F[Crossover and Mutation];
-    F --> G[Replace Population];
-    G --> B;
-    B -->|Example:| X1(Individual 1: x = 1);
-    B --> X2(Individual 2: x = 3);
-    B --> X3(Individual 3: x = 0);
-    C -->|Example:| Y1(Selected Parents: x = 1, x = 3);
-    F -->|Example:| Z1(Offspring 1: x = 1);
-    F --> Z2(Offspring 2: x = 3);
+grViz("
+  digraph genetic_algorithm {
+    rankdir=LR;
+    
+    A [label = 'Initialize Population'];
+    B [label = 'Evaluate Fitness'];
+    C [label = 'Selection'];
+    D [label = 'Termination Condition?'];
+    E [label = 'End'];
+    F [label = 'Crossover and Mutation'];
+    G [label = 'Replace Population'];
+    
+    X1 [label = 'Individual 1: x = 1', shape = ellipse];
+    X2 [label = 'Individual 2: x = 3', shape = ellipse];
+    X3 [label = 'Individual 3: x = 0', shape = ellipse];
+    
+    Y1 [label = 'Selected Parents: x = 1, x = 3', shape = ellipse];
+    
+    Z1 [label = 'Offspring 1: x = 1', shape = ellipse];
+    Z2 [label = 'Offspring 2: x = 3', shape = ellipse];
+    
+    A -> B;
+    B -> C;
+    C -> D;
+    D -> E [label = 'Yes'];
+    D -> F [label = 'No'];
+    F -> G;
+    G -> B;
+    
+    # Examples
+    B -> X1 [label = 'Example:'];
+    B -> X2;
+    B -> X3;
+    
+    C -> Y1 [label = 'Example:'];
+    
+    F -> Z1 [label = 'Example:'];
+    F -> Z2;
+  }
+")
+
 ```
-![Web capture_8-2-2024_233215_mermaid live](https://github.com/danymukesha/genetic.algo.optimizeR/assets/45208254/a9dc80bc-a464-4151-b9ff-9630310cdf9f)
+

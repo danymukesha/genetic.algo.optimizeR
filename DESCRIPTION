@@ -23,8 +23,9 @@ Imports:
     rsconnect,
     stats,
     stringr,
-    tinytex, 
-    biocViews
+    tinytex,
+    biocViews,
+    DiagrammeR
 Suggests: 
     BiocStyle,
     knitr,
@@ -37,6 +38,6 @@ VignetteBuilder:
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: false
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Language: en-US
 biocViews: ExperimentalDesign, Technology

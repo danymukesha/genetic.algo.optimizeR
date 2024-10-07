@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# {genetic.algo.optimizeR} <a href="https://danymukesha.github.io/genetic.algo.optimizeR/"><img src="man/figures/logo.png" align="right" height="139" alt="genetic.algo.optimizeR website" /></a>
+# {genetic.algo.optimizeR} <a href="https://danymukesha.github.io/genetic.algo.optimizeR/"><img src="man/figures/logo.png" alt="genetic.algo.optimizeR website" align="right" height="139"/></a>
 
 <!-- badges: start -->
 
@@ -14,12 +14,26 @@ binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/danymuk
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![Codecov test
 coverage](https://codecov.io/gh/danymukesha/genetic.algo.optimizeR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/danymukesha/genetic.algo.optimizeR?branch=main)
+
 <!-- badges: end -->
 
-The goal of `genetic.algo.optimizeR` is to optimize the function
-$f(x) = x^2 - 4x + 4$ using a genetic algorithm. The function represents
-a simple quadratic equation, and the goal is to find the value of $x$
-that minimizes the function.
+Genetic algorithms (GAs) are metaheuristic optimization techniques
+inspired by the principles of natural selection and evolution. They
+operate on a population of potential solutions, applying genetic
+operators such as selection, crossover, and mutation to evolve better
+solutions over successive generations.
+
+GAs are particularly useful for optimizing complex, non-linear functions
+with multiple local optima, where traditional gradient-based methods may
+fail.
+
+We come out with a simple example to explore how these components work
+together in our quadratic function optimization problem using
+`genetic.algo.optimizeR` package.
+
+The goal is to optimize the function $f(x) = x^2 - 4x + 4$ using a
+genetic algorithm. The function represents a simple quadratic equation,
+and the goal is to find the value of $x$ that minimizes the function.
 
 Here’s a breakdown of the aim and the results:
 
@@ -79,59 +93,50 @@ population <- initialize_population(population_size = 3, min = 0, max = 3)
 print("Initial Population:")
 #> [1] "Initial Population:"
 print(population)
-#> [1] 0 1 3
+#> [1] 2 0 1
 
 generation <- 0 # Initialize generation/reputation counter
 
 while (TRUE) {
-  generation <- generation + 1 # Increment generation/reputation count
+    generation <- generation + 1 # Increment generation/reputation count
 
-  # Evaluate fitness
-  fitness <- evaluate_fitness(population)
-  print("Evaluation:")
-  print(fitness)
+    # Evaluate fitness
+    fitness <- evaluate_fitness(population)
+    print("Evaluation:")
+    print(fitness)
 
+    # Check if the fitness of every individual is close to zero
+    if (all(abs(fitness) <= 0.01)) {
+        print("Termination Condition Reached: All individuals have fitness close to zero.")
+        break
+    }
 
-  # Check if the fitness of every individual is close to zero
-  if (all(abs(fitness) <= 0.01)) {
-    print("Termination Condition Reached: All individuals have fitness close to zero.")
-    break
-  }
+    # Selection
+    selected_parents <- selection(population, fitness, num_parents = 2)
+    print("Selection:")
+    print(selected_parents)
 
-  # Selection
-  selected_parents <- selection(population, fitness, num_parents = 2)
-  print("Selection:")
-  print(selected_parents)
+    # Crossover and Mutation
+    offspring <- crossover(selected_parents, offspring_size = 2)
+    mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
+    print("Crossover and Mutation:")
+    print(mutated_offspring)
 
-  # Crossover and Mutation
-  offspring <- crossover(selected_parents, offspring_size = 2)
-  mutated_offspring <- mutation(offspring, mutation_rate = 0) # (no mutation in this example)
-  print("Crossover and Mutation:")
-  print(mutated_offspring)
-
-  # Replacement
-  population <- replacement(population, mutated_offspring, num_to_replace = 1)
-  print("Replacement:")
-  print(population)
+    # Replacement
+    population <- replacement(population, mutated_offspring, num_to_replace = 1)
+    print("Replacement:")
+    print(population)
 }
 #> [1] "Evaluation:"
-#> [1] 4 1 1
-#> [1] "Selection:"
-#> [1] 1 3
-#> [1] "Crossover and Mutation:"
-#> [1] 2 2
-#> [1] "Replacement:"
-#> [1] 0 1 2
-#> [1] "Evaluation:"
-#> [1] 4 1 0
+#> [1] 0 4 1
 #> [1] "Selection:"
 #> [1] 2 1
 #> [1] "Crossover and Mutation:"
 #> [1] 2 2
 #> [1] "Replacement:"
-#> [1] 2 1 2
+#> [1] 2 0 2
 #> [1] "Evaluation:"
-#> [1] 0 1 0
+#> [1] 0 4 0
 #> [1] "Selection:"
 #> [1] 2 2
 #> [1] "Crossover and Mutation:"
@@ -143,7 +148,7 @@ while (TRUE) {
 #> [1] "Termination Condition Reached: All individuals have fitness close to zero."
 
 print(paste("Total generations/reputations:", generation))
-#> [1] "Total generations/reputations: 4"
+#> [1] "Total generations/reputations: 3"
 ```
 
 The above example illustrates the process of a genetic algorithm, where
@@ -192,7 +197,7 @@ a <- 1
 b <- -4
 c <- 4
 f <- function(x) {
-  a * x^2 + b * x + c
+    a * x^2 + b * x + c
 }
 ```
 
@@ -250,9 +255,9 @@ $$
 
 ``` r
 find.fitting <- function(a, b, c) {
-  x_fitting <- -b / (2 * a)
-  y_fitting <- f(x_fitting)
-  c(x_fitting, y_fitting)
+    x_fitting <- -b / (2 * a)
+    y_fitting <- f(x_fitting)
+    c(x_fitting, y_fitting)
 }
 F <- find.fitting(a, b, c)
 ```
@@ -267,13 +272,13 @@ abline(h = 0)
 abline(v = 0)
 # add the vertex to the plot
 points(
-  x = F[1], y = F[2],
-  pch = 18, cex = 2, col = "red"
+    x = F[1], y = F[2],
+    pch = 18, cex = 2, col = "red"
 ) # pch controls the form of the point and cex controls its size
 # add a label next to the point
 text(
-  x = F[1], y = F[2],
-  labels = "Fitting", pos = 3, col = "red", font = 10
+    x = F[1], y = F[2],
+    labels = "Fitting", pos = 3, col = "red", font = 10
 ) # pos = 3 places the text above the point
 ```
 
@@ -304,14 +309,14 @@ The quantity $b2–4ac$ is called the discriminant:
 ``` r
 # find the x-intercepts of f(x)
 find.roots <- function(a, b, c) {
-  discriminant <- b^2 - 4 * a * c
-  if (discriminant > 0) {
-    c((-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a))
-  } else if (discriminant == 0) {
-    -b / (2 * a)
-  } else {
-    NaN
-  }
+    discriminant <- b^2 - 4 * a * c
+    if (discriminant > 0) {
+        c((-b - sqrt(discriminant)) / (2 * a), (-b + sqrt(discriminant)) / (2 * a))
+    } else if (discriminant == 0) {
+        -b / (2 * a)
+    } else {
+        NaN
+    }
 }
 solutions <- find.roots(a, b, c)
 ```
@@ -326,14 +331,88 @@ abline(h = 0)
 abline(v = 0)
 # add the x-intercepts to the plot
 points(
-  x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
-  pch = 18, cex = 2, col = "red"
+    x = solutions, y = rep(0, length(solutions)), # x and y coordinates of the x-intercepts
+    pch = 18, cex = 2, col = "red"
 )
 text(
-  x = solutions, y = rep(0, length(solutions)),
-  labels = rep("Fitting(x-intercept)", length(solutions)),
-  pos = 3, col = "red", font = 10
+    x = solutions, y = rep(0, length(solutions)),
+    labels = rep("Fitting(x-intercept)", length(solutions)),
+    pos = 3, col = "red", font = 10
 )
 ```
 
 <img src="man/figures/README-plot_intercepts-1.png" width="70%" />
+
+We has demonstrated the application of genetic algorithm concepts to
+optimize a quadratic function. We’ve explored population initialization,
+fitness evaluation, selection, and visualization of results. We’ve also
+delved into the theoretical aspects of quadratic functions, including
+finding the optimal solution and x-intercepts.
+
+Future developments could include:
+
+- Implementing more sophisticated crossover and mutation operators
+- Exploring multi-objective optimization problems
+- Applying GAs to more complex, higher-dimensional functions
+- Investigating hybrid algorithms that combine GAs with other
+  optimization techniques
+
+By understanding these fundamental concepts and their implementation, we
+can take advantage of genetic algorithms for a wide range of
+optimization problems across various domains.
+
+## Advanced topics
+
+### Multi-objective optimization
+
+While our example focuses on single-objective optimization, genetic
+algorithms are particularly powerful for multi-objective problems. In
+such cases, the concept of Pareto optimality is used to evaluate
+solutions, and techniques like NSGA-II (Non-dominated Sorting Genetic
+Algorithm II) can be employed.
+
+### Adaptive parameter control
+
+The performance of genetic algorithms can be sensitive to parameter
+settings (e.g., mutation rate, crossover probability). Adaptive
+parameter control techniques adjust these parameters dynamically during
+the optimization process, potentially improving convergence and solution
+quality.
+
+### Parallel implementation
+
+Genetic algorithms are inherently parallelizable. Implementing parallel
+versions of selection, crossover, and mutation operations can
+significantly reduce computation time for large-scale optimization
+problems.
+
+## Wrap-Up
+
+Currrently only the fundamental concepts and implementation of genetic
+algorithms are used in the `genetic.algo.optimizeR` package. By
+following these steps and understanding the underlying principles, users
+can apply this powerful optimization technique to a wide range of
+problems in fields such as engineering, finance, and bioinformatics.
+
+Future developments of the package may include:
+
+1.  Implementation of more advanced selection methods (e.g., tournament
+    selection)
+2.  Support for constraint handling in optimization problems
+3.  Integration with other R optimization packages for hybrid algorithms
+
+I would encourage the users to experiment with different parameter
+settings and problem formulations to gain deeper insights into the
+behavior and capabilities of genetic algorithms.
+
+## References
+
+1.  Goldberg, D. E. (1989). Genetic Algorithms in Search, Optimization
+    and Machine Learning. Addison-Wesley.
+2.  Holland, J. H. (1992). Adaptation in Natural and Artificial Systems.
+    MIT Press.
+3.  Whitley, D. (1994). A genetic algorithm tutorial. Statistics and
+    Computing, 4(2), 65-85
+4.  Deb, K., Pratap, A., Agarwal, S., & Meyarivan, T. A. M. T. (2002). A
+    fast and elitist multiobjective genetic algorithm: NSGA-II. IEEE
+    Transactions on Evolutionary Computation, 6(2), 182-197.
