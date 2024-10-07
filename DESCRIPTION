@@ -1,7 +1,7 @@
 Type: Package
 Package: genetic.algo.optimizeR
 Title: Genetic Algorithm Optimization
-Version: 0.3.1
+Version: 0.3.2
 Authors@R: 
     person("Dany", "Mukesha", , "danymukesha@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0001-9514-751X"))
@@ -11,7 +11,8 @@ Description: Genetic algorithm are a class of optimization
     various functions or parameters by mimicking biological evolution
     processes such as selection, crossover, and mutation. Ideal for tasks
     like machine learning parameter tuning, mathematical function
-    optimization, and solving combinatorial problems.
+    optimization, and solving an optimization problem that involves finding 
+    the best solution in a discrete space.
 License: MIT + file LICENSE
 URL: https://danymukesha.github.io/genetic.algo.optimizeR/,
     https://github.com/danymukesha/genetic.algo.optimizeR
