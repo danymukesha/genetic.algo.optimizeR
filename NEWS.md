@@ -1,3 +1,5 @@
+# genetic.algo.optimizeR 0.3.0
+
 # genetic.algo.optimizeR 0.2.6
 
 * fix and submission to CRAN
