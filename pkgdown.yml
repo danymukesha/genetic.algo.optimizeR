@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   intro_to_genetic.algo.optimizeR: intro_to_genetic.algo.optimizeR.html
   optimize_function_with_GA: optimize_function_with_GA.html
-last_built: 2024-10-07T09:06Z
+last_built: 2024-10-08T18:55Z
 urls:
   reference: https://danymukesha.github.io/genetic.algo.optimizeR/reference
   article: https://danymukesha.github.io/genetic.algo.optimizeR/articles
